@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mon_m: false
+  mon_a: false
+  mon_e: false
+  tue_m: false
+  tue_a: false
+  tue_e: false
+  wed_m: false
+  wed_a: false
+  wed_e: false
+  thu_m: false
+  thu_a: false
+  thu_e: false
+  fri_m: false
+  fri_a: false
+  fri_e: false
+  sat_m: false
+  sat_a: false
+  sat_e: false
+  sun_m: false
+  sun_a: false
+  sun_e: false
+  pwd_id: 1
+  volunteer_id: 1
+
+two:
+  mon_m: false
+  mon_a: false
+  mon_e: false
+  tue_m: false
+  tue_a: false
+  tue_e: false
+  wed_m: false
+  wed_a: false
+  wed_e: false
+  thu_m: false
+  thu_a: false
+  thu_e: false
+  fri_m: false
+  fri_a: false
+  fri_e: false
+  sat_m: false
+  sat_a: false
+  sat_e: false
+  sun_m: false
+  sun_a: false
+  sun_e: false
+  pwd_id: 1
+  volunteer_id: 1
