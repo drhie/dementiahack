@@ -5,18 +5,62 @@
   </div>
 
   <%= f.fields_for :hobbies do |r| %>
-    <%= render "hobby_fields", :f => r %>
+    <div class="field hobbies">
+      <%= r.label :name %>
+      <%# r.text_field :name %>
+      <%= r.select :name, (@hobbies) %>
+    </div>
   <% end %>
-  <!-- <div class = "button">
+  <div class = "button">
     <%# link_to_add_association 'Add Hobby', f, :hobbies %>
-  </div> -->
+  </div>
 
   <%= f.fields_for :languages do |r| %>
-    <%= render "language_fields", f: r %>
+    <div class="field">
+      <%= r.label :language %>
+      <%= r.select :language, (@language) %>
+    </div>
   <% end %>
-  <!-- <div class = "button">
+  <div class = "button">
     <%# link_to_add_association 'Add Language', f, :languages %>
-  </div> -->
+  </div>
+
+  <%= f.fields_for :interactions do |r| %>
+    <div class="field">
+      <%= r.label :interaction %>
+      <%= r.select :interaction, (@interaction) %>
+    </div>
+  <% end %>
+
+<h2>Schooling Info</h2>
+  <%= f.fields_for :schoolings do |r| %>
+    <div class="field">
+      <%= r.label "Name of School" %>
+      <%= r.select :name, (@school)  %>
+    </div>
+    <div class="field">
+      <%= r.label :level %>
+      <%= r.select :level, (@level)  %>
+    </div>
+    <div class="field">
+      <%= r.label :specialization %>
+      <%= r.select :specialization, (@specialization)  %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :work_experiences do |r| %>
+    <div class="field">
+      <%= r.label :industry %>
+      <%= r.select :industry, (@industry) %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :cultural_backgrounds do |r| %>
+    <div class="field">
+      <%= r.label :background %>
+      <%= r.select :background, (@cultural_background) %>
+    </div>
+  <% end %>
 
   <%= f.submit %>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304191435) do
+ActiveRecord::Schema.define(version: 20170304224054) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20170304191435) do
   end
 
   create_table "interactions", force: :cascade do |t|
-    t.string   "type"
     t.integer  "volunteer_id"
     t.integer  "pwd_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "interaction"
   end
 
   create_table "languages", force: :cascade do |t|

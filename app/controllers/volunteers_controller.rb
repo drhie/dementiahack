@@ -54,9 +54,21 @@ class VolunteersController < ApplicationController
   end
 
   def new_profile
-    @volunteer.hobbies.build
     @hobbies = ["Cards", "Squash", "Ping Pong"]
+    @interaction = ["Individual", "Small Group", "Large Group"]
+    @language = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French']
+    @school = ["University of Toronto", "University of Waterloo", "George Brown College"]
+    @level = ["High School", "Postsecondary", "Graduate", "Doctorate"]
+    @specialization = ["Genetics", "Commerce", "International Relations", "Computer Science"]
+    @industry = ["Retail", "Research", "Translation", "IT"]
+    @cultural_background = ['German', 'Indian', 'Korean', 'Chinese']
+    @volunteer.hobbies.build
     @volunteer.languages.build
+    @volunteer.cultural_backgrounds.build
+    @volunteer.interactions.build
+    @volunteer.schoolings.build
+    @volunteer.skills.build
+    @volunteer.work_experiences.build
   end
 
   # DELETE /volunteers/1
@@ -83,6 +95,13 @@ class VolunteersController < ApplicationController
     def volunteer_params
       params.require(:volunteer).permit(:first_name, :last_name, :email, :neighborhood, :city, :password, :password_confirmation,
       hobbies_attributes: [ :id, :name, :_destroy ],
-      languages_attributes: [ :id, :language, :_destroy ])
+      languages_attributes: [ :id, :language, :_destroy ],
+      cultural_backgrounds_attributes: [ :id, :background, :_destroy],
+      interactions_attributes: [ :id, :interaction, :_destroy ],
+      schoolings_attributes: [ :id, :name, :level, :specialization, :_destroy ],
+      skills_attributes: [ :id, :name, :_destroy ],
+      work_experiences_attributes: [ :id, :industry,  :_destroy ])
+
+
     end
 end
