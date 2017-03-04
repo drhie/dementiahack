@@ -6,7 +6,7 @@ class Volunteer < ApplicationRecord
   has_many :pwds, through: :matches
   #FIELDS
   has_many :availabilities
-  has_many :hobbies
+  has_many :hobbies, inverse_of: :volunteer
   has_many :cultural_backgrounds
   has_many :languages
   has_many :skills
@@ -14,5 +14,7 @@ class Volunteer < ApplicationRecord
   has_many :work_experiences
   has_many :schoolings
 
-  accepts_nested_attributes_for :hobbies, :languages
+  accepts_nested_attributes_for :hobbies, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :languages, reject_if: :all_blank, allow_destroy: true
+
 end

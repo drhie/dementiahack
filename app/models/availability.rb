@@ -1,6 +1,6 @@
 class Availability < ApplicationRecord
-  belongs_to :volunteer
-  belongs_to :pwd
+  belongs_to :pwd, optional: true
+  belongs_to :volunteer, optional: true
 
   def self.check_availabilities(user) #This checks on the volunteer's end
     availabilities = []

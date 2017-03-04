@@ -40,11 +40,13 @@ class VolunteersController < ApplicationController
   # PATCH/PUT /volunteers/1
   # PATCH/PUT /volunteers/1.json
   def update
+    # @volunteer.hobbies.build()
     respond_to do |format|
       if @volunteer.update(volunteer_params)
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
         format.json { render :show, status: :ok, location: @volunteer }
       else
+        byebug
         format.html { render :edit }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }
       end
@@ -52,9 +54,9 @@ class VolunteersController < ApplicationController
   end
 
   def new_profile
-    @volunteer.hobbies.build(pwd_id: 1)
+    @volunteer.hobbies.build
     @hobbies = ["Cards", "Squash", "Ping Pong"]
-    @volunteer.languages.build(pwd_id: 1)
+    @volunteer.languages.build
   end
 
   # DELETE /volunteers/1
@@ -80,7 +82,7 @@ class VolunteersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def volunteer_params
       params.require(:volunteer).permit(:first_name, :last_name, :email, :neighborhood, :city, :password, :password_confirmation,
-            hobbies_attributes: [ :name ],
-            languages_attributes: [ :language ])
+      hobbies_attributes: [ :id, :name, :_destroy ],
+      languages_attributes: [ :id, :language, :_destroy ])
     end
 end

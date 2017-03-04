@@ -5,18 +5,18 @@
   </div>
 
   <%= f.fields_for :hobbies do |r| %>
-    <%= render "hobby_fields", f: r %>
+    <%= render "hobby_fields", :f => r %>
   <% end %>
-  <div class = "button">
-    <%= link_to_add_association 'Add Hobby', f, :hobbies %>
-  </div>
+  <!-- <div class = "button">
+    <%# link_to_add_association 'Add Hobby', f, :hobbies %>
+  </div> -->
 
   <%= f.fields_for :languages do |r| %>
     <%= render "language_fields", f: r %>
   <% end %>
-  <div class = "button">
-    <%= link_to_add_association 'Add Language', f, :languages %>
-  </div>
+  <!-- <div class = "button">
+    <%# link_to_add_association 'Add Language', f, :languages %>
+  </div> -->
 
   <%= f.submit %>
 <% end %>
