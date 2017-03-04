@@ -13,4 +13,6 @@ class Volunteer < ApplicationRecord
   has_many :interactions
   has_many :work_experiences
   has_many :schoolings
+
+  accepts_nested_attributes_for :hobbies, :languages
 end

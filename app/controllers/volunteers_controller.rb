@@ -1,5 +1,5 @@
 class VolunteersController < ApplicationController
-  before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
+  before_action :set_volunteer, only: [:show, :edit, :update, :new_profile, :destroy]
 
   # GET /volunteers
   # GET /volunteers.json
@@ -51,6 +51,12 @@ class VolunteersController < ApplicationController
     end
   end
 
+  def new_profile
+    @volunteer.hobbies.build(pwd_id: 1)
+    @hobbies = ["Cards", "Squash", "Ping Pong"]
+    @volunteer.languages.build(pwd_id: 1)
+  end
+
   # DELETE /volunteers/1
   # DELETE /volunteers/1.json
   def destroy
@@ -68,11 +74,13 @@ class VolunteersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_volunteer
-      @volunteer = Volunteer.find(params[:id])
+      @volunteer = Volunteer.find(session[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def volunteer_params
-      params.require(:volunteer).permit(:first_name, :last_name, :email, :neighborhood, :city, :password, :password_confirmation)
+      params.require(:volunteer).permit(:first_name, :last_name, :email, :neighborhood, :city, :password, :password_confirmation,
+            hobbies_attributes: [ :name ],
+            languages_attributes: [ :language ])
     end
 end

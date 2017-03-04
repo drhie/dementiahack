@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       session[:type] = user.class.name
+      session[:user] = user
       flash[:notice] = "Logged in!"
       redirect_to root_url
     else
@@ -20,5 +21,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, notice: "Goodbye!"
   end
-
 end
