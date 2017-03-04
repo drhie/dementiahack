@@ -1,0 +1,17 @@
+<%= form_for(pwd) do |f| %>
+  <% if pwd.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pwd.errors.count, "error") %> prohibited this pwd from being saved:</h2>
+
+      <ul>
+      <% pwd.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
