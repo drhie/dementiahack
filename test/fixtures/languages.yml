@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  timeslot: MyString
+  language: MyString
   pwd_id: 1
   volunteer_id: 1
 
 two:
-  timeslot: MyString
+  language: MyString
   pwd_id: 1
   volunteer_id: 1

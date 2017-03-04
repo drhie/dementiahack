@@ -61,6 +61,10 @@ class VolunteersController < ApplicationController
     end
   end
 
+  def check_availabilities
+    Availability.check_availabilities(@volunteer)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_volunteer
