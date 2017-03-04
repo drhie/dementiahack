@@ -1,15 +1,16 @@
-<%= form_for(volunteer) do |f| %>
-  <% if volunteer.errors.any? %>
+<%= form_for(pwd) do |f| %>
+  <% if pwd.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(volunteer.errors.count, "error") %> prohibited this volunteer from being saved:</h2>
+      <h2><%= pluralize(pwd.errors.count, "error") %> prohibited this pwd from being saved:</h2>
 
       <ul>
-      <% volunteer.errors.full_messages.each do |message| %>
+      <% pwd.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>

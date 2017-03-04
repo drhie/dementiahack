@@ -1,4 +1,4 @@
-class PwDsController < ApplicationController
+class PwdsController < ApplicationController
   before_action :set_pwd, only: [:show, :edit, :update, :destroy]
 
   # GET /pwds

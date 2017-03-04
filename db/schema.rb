@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304181013) do
+ActiveRecord::Schema.define(version: 20170304191435) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
@@ -72,14 +72,14 @@ ActiveRecord::Schema.define(version: 20170304181013) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "age"
     t.boolean  "active"
     t.string   "neighborhood"
     t.string   "city"
     t.string   "password_digest"
+    t.integer  "organization_id", default: 1
   end
 
   create_table "schoolings", force: :cascade do |t|

@@ -9,19 +9,23 @@
 Volunteer.create(
   first_name: "Dave",
   last_name:  "Rhie",
-  email:      "dave@dave.com"
-  neighborhood: "Etobicoke"
-  city:        "Toronto"
+  email:      "dave@dave.com",
+  neighborhood: "Etobicoke",
+  city:        "Toronto",
   password:   "asdf"
 )
 
 Volunteer.create(
   first_name: "Sahani",
   last_name:  "Sahani",
-  email:      "sahani@dave.com"
-  neighborhood: "Scarborough"
-  city:        "Toronto"
+  email:      "sahani@dave.com",
+  neighborhood: "Scarborough",
+  city:        "Toronto",
   password:   "asdf"
+)
+
+Organization.create(
+name:       "Independent",
 )
 
 Organization.create(
@@ -33,17 +37,17 @@ Organization.create(
 Organization.create(
   name:       "Bitmaker Villages",
   email:      "bv@sv.com",
-  phone_number: "556-5555"
+  phone_number: "556-5555",
 )
 
 Pwd.create(
   first_name: "Rich",
   last_name:   "Strauss",
   email:      "rich@rich.com",
-  organization_id: 1
-  neighborhood: "Etobicoke"
-  city:        "Toronto"
-  password:   "asdf"
+  organization_id: 1,
+  neighborhood: "Etobicoke",
+  city:        "Toronto",
+  password:   "asdf",
 
 )
 
@@ -51,10 +55,10 @@ Pwd.create(
   first_name: "Stephen",
   last_name:   "Huang",
   email:      "stephenh@rich.com",
-  organization_id: 1
-  neighborhood: "Scarborough"
-  city:        "Toronto"
-  password:   "asdf"
+  organization_id: 1,
+  neighborhood: "Scarborough",
+  city:        "Toronto",
+  password:   "asdf",
 )
 
 Match.create(
