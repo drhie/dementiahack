@@ -69,6 +69,6 @@ class PwDsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pwd_params
-      params.fetch(:pwd, {})
+      params.require(:pwd).permit(:first_name, :last_name, :email, :age, :active, :neighborhood, :city, :password, :password_confirmation)
     end
 end

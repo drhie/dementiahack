@@ -10,12 +10,18 @@ Volunteer.create(
   first_name: "Dave",
   last_name:  "Rhie",
   email:      "dave@dave.com"
+  neighborhood: "Etobicoke"
+  city:        "Toronto"
+  password:   "asdf"
 )
 
 Volunteer.create(
   first_name: "Sahani",
   last_name:  "Sahani",
   email:      "sahani@dave.com"
+  neighborhood: "Scarborough"
+  city:        "Toronto"
+  password:   "asdf"
 )
 
 Organization.create(
@@ -35,6 +41,10 @@ Pwd.create(
   last_name:   "Strauss",
   email:      "rich@rich.com",
   organization_id: 1
+  neighborhood: "Etobicoke"
+  city:        "Toronto"
+  password:   "asdf"
+
 )
 
 Pwd.create(
@@ -42,6 +52,9 @@ Pwd.create(
   last_name:   "Huang",
   email:      "stephenh@rich.com",
   organization_id: 1
+  neighborhood: "Scarborough"
+  city:        "Toronto"
+  password:   "asdf"
 )
 
 Match.create(

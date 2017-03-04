@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if flash.any? %>
+      <%= flash %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
