@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  background: MyString
+  volunteer_id: 1
+  pwd_id: 1
+
+two:
+  background: MyString
+  volunteer_id: 1
+  pwd_id: 1

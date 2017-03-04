@@ -1,0 +1,2 @@
+class CulturalBackground < ApplicationRecord
+end

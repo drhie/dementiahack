@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304170817) do
+ActiveRecord::Schema.define(version: 20170304174943) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
@@ -20,10 +20,26 @@ ActiveRecord::Schema.define(version: 20170304170817) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "cultural_backgrounds", force: :cascade do |t|
+    t.string   "background"
+    t.integer  "volunteer_id"
+    t.integer  "pwd_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "hobbies", force: :cascade do |t|
     t.string   "name"
     t.integer  "pwd_id"
     t.integer  "volunteer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "volunteer_id"
+    t.integer  "pwd_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -49,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170304170817) do
     t.string   "phone_number"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "full_address"
   end
 
   create_table "pwds", force: :cascade do |t|
@@ -60,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170304170817) do
     t.datetime "updated_at",      null: false
     t.integer  "age"
     t.boolean  "active"
+    t.string   "neighborhood"
+    t.string   "city"
   end
 
   create_table "schoolings", force: :cascade do |t|
@@ -84,8 +103,10 @@ ActiveRecord::Schema.define(version: 20170304170817) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "neighborhood"
+    t.string   "city"
   end
 
   create_table "work_experiences", force: :cascade do |t|

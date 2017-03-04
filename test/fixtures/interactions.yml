@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  volunteer_id: 1
+  pwd_id: 1
+
+two:
+  type: 
+  volunteer_id: 1
+  pwd_id: 1
