@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/new_pwd_availability' => 'pwds#new_availability', as: :new_pwd_availability
   post '/create_pwd_availability' => 'pwds#create_availability', as: :create_pwd_availability
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/get_matches' => "matches#get_matches", as: :get_matches
 end

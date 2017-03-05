@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :set_match, only: [:show, :edit, :update, :get_matches, :destroy]
 
   # GET /matches
   # GET /matches.json
@@ -59,6 +59,11 @@ class MatchesController < ApplicationController
       format.html { redirect_to matches_url, notice: 'Match was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def get_matches
+    @user = Pwd.find(session[:user_id])
+    Match.calculate_match(@user)
   end
 
   private

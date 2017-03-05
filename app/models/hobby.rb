@@ -20,7 +20,7 @@ class Hobby < ApplicationRecord
       hobbies.each do |hobby|
         matched_counter += 1 if hobby.volunteer_id == person.id || hobby.pwd_id == person.id
       end
-      ranked_matched_people << [person, matched_counter] if !ranked_matched_people.include?([person, matched_counter])
+      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
     end
     ranked_matched_people
   end
