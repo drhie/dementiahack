@@ -1,4 +1,9 @@
-<h1>Welcome to Mindr!</h1>
-<h2>This app connects volunteers with people with dementia!</h2>
-<%= link_to "Sign Up as a Volunteer", new_volunteer_path %> |
-<%= link_to "Sign Up as a Person with Dementia (PWD)", new_pwd_path %>
+<div class="intro">
+  <p>This app connects volunteers with people with dementia (PWD)!</p>
+
+  <div class="links">
+    <p>Sign up as:</p>
+    <div class="button"><%= link_to "Volunteer", new_volunteer_path %></div>
+    <div class="button"><%= link_to "PWD", new_pwd_path %></div>
+  </div>
+</div>

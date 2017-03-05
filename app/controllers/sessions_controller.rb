@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   def index
+    @user = Pwd.find(session[:user_id]) if session[:type] == "Pwd"
+    @user = Volunteer.find(session[:user_id]) if session[:type] == "Volunter"
   end
 
   def new

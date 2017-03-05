@@ -3,7 +3,8 @@
   <head>
     <title>Dementiahack</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Meera+Inimai|Nunito:300|Palanquin+Dark|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,40 @@
   </head>
 
   <body>
-    <% if flash.any? %>
-      <%= flash %>
-    <% end %>
-    <%= yield %>
-  </body>
-  <body>
+    <div class="nav-bar">
+      <div class="logo"><%= image_tag(("brain.png"), id: "brain") %><h1 class="title"><%= link_to "ConnectDem", root_url %></h1></div>
+      <% if session[:user_id]  %>
+        <div class="link-bar">
+          <% if session[:type] == "Volunteer" %>
+            <%= link_to 'Edit Login Info', edit_volunteer_path(session[:user_id]) %>
+            <%= link_to 'Set Up Profile', new_profile_path %>
+            <%= link_to 'Set Availability', new_availability_path %>
+          <% end %>
+          <% if session[:type] == "Pwd" %>
+            <%= link_to 'Edit Login Info', edit_pwd_path(session[:user_id]) %>
+            <%= link_to 'Set Up Profile', new_pwd_profile_path %>
+            <%= link_to 'Set Availability', new_pwd_availability_path %>
+          <% end %>
+          <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
+        </div>
+      <% else %>
+        <div class="login-bar">
+          <p>Have an account already?</p><%= link_to "Log in", new_session_path %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="shell">
+      <% if flash[:alert] %>
+        <%= flash[:alert] %>
+      <% end %>
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+      <%= yield %>
+    </div>
     <footer>
-      <p class="footer">© 2017 Mindr , David R. Stephen H. Richard S. Akshit S.</p>
+      <p class="footer">© 2017 ConnectDem , David R. Stephen H. Richard S. Akshit S.</p>
     </footer>
   </body>
 </html>
