@@ -1,4 +1,66 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @volunteer.first_name %>
+<%= @volunteer.last_name %></h1>
+<% if @volunteer.hobbies.any? %>
+  <div class="field">
+    <h4>Your hobbies:</h4>
+    <% @volunteer.hobbies.each do |hobby| %>
+      <p><%= hobby.name %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.schoolings.any? %>
+  <div class="field">
+    <h4>Your schooling information:</h4>
+    <% @volunteer.schoolings.each do |schooling| %>
+      <p><%= schooling.name %></p>
+      <p><%= schooling.level %></p>
+      <p><%= schooling.specialization %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.languages.any? %>
+  <div class="field">
+    <h4>Your languages:</h4>
+    <% @volunteer.languages.each do |language| %>
+      <p><%= language.language %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.cultural_backgrounds.any? %>
+  <div class="field">
+    <h4>Your cultural background:</h4>
+    <% @volunteer.cultural_backgrounds.each do |cultural_background| %>
+      <p><%= cultural_background.background %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.work_experiences.any? %>
+  <div class="field">
+    <h4>Your industry:</h4>
+    <% @volunteer.work_experiences.each do |industry| %>
+      <p><%= industry.industry %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.availabilities.any? %>
+  <div class="field">
+    <h4>Your availabilities:</h4>
+    <% @volunteer.availabilities.each do |availability| %>
+      <p><%= availability.timeslot %></p>
+    <% end %>
+  </div>
+<% end %>
+
+
 <%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
-<%= link_to 'Back', volunteers_path %>
+<%= link_to 'Back', volunteers_path %> |
+<%= link_to 'Set Up Profile', new_profile_path %> |
+<%= link_to 'Set Availability', new_availability_path %> |
+<%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>

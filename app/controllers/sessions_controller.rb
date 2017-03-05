@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  def index
+  end
 
   def new
   end
@@ -10,7 +12,8 @@ class SessionsController < ApplicationController
       session[:type] = user.class.name
       session[:user] = user
       flash[:notice] = "Logged in!"
-      redirect_to root_url
+      redirect_to volunteer_path(user.id) if session[:type] == "Volunteer"
+      redirect_to pwd_path(user.id) if session[:type] == "Pwd"
     else
       flash.now[:alert] = "Login failed."
       render :new
@@ -19,6 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:type] = nil
     redirect_to root_url, notice: "Goodbye!"
   end
 end

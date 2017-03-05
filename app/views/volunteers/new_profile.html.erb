@@ -1,14 +1,11 @@
-<%= form_for @volunteer do |f| %>
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+<%= form_for @volunteer, url: create_profile_path, method: :post do |f| %>
+  <h1>Hi <%= @volunteer.first_name %> <%= @volunteer.last_name %>! Create your profile!</h1>
 
   <%= f.fields_for :hobbies do |r| %>
     <div class="field hobbies">
-      <%= r.label :name %>
+      <%= r.label "Hobby/Interest" %>
       <%# r.text_field :name %>
-      <%= r.select :name, (@hobbies) %>
+      <%= r.select :name, (@hobbies), include_blank: true %>
     </div>
   <% end %>
   <div class = "button">
@@ -18,7 +15,7 @@
   <%= f.fields_for :languages do |r| %>
     <div class="field">
       <%= r.label :language %>
-      <%= r.select :language, (@language) %>
+      <%= r.select :language, (@language),  include_blank: true %>
     </div>
   <% end %>
   <div class = "button">
@@ -28,7 +25,7 @@
   <%= f.fields_for :interactions do |r| %>
     <div class="field">
       <%= r.label :interaction %>
-      <%= r.select :interaction, (@interaction) %>
+      <%= r.select :interaction, (@interaction),  include_blank: true %>
     </div>
   <% end %>
 
@@ -36,31 +33,66 @@
   <%= f.fields_for :schoolings do |r| %>
     <div class="field">
       <%= r.label "Name of School" %>
-      <%= r.select :name, (@school)  %>
+      <%= r.select :name, (@school),  include_blank: true  %>
     </div>
     <div class="field">
       <%= r.label :level %>
-      <%= r.select :level, (@level)  %>
+      <%= r.select :level, (@level), include_blank: true  %>
     </div>
     <div class="field">
       <%= r.label :specialization %>
-      <%= r.select :specialization, (@specialization)  %>
+      <%= r.select :specialization, (@specialization),  include_blank: true  %>
     </div>
   <% end %>
 
   <%= f.fields_for :work_experiences do |r| %>
     <div class="field">
       <%= r.label :industry %>
-      <%= r.select :industry, (@industry) %>
+      <%= r.select :industry, (@industry),  include_blank: true %>
     </div>
   <% end %>
 
   <%= f.fields_for :cultural_backgrounds do |r| %>
     <div class="field">
       <%= r.label :background %>
-      <%= r.select :background, (@cultural_background) %>
+      <%= r.select :background, (@cultural_background),  include_blank: true %>
     </div>
   <% end %>
 
-  <%= f.submit %>
+  <%= f.label "What would you like to learn?"  %>
+  <%= f.text_area :to_learn %>
+
+  <%# f.fields_for :availabilities do |r| %>
+    <div class="field">
+      <%# r.label "Monday" %>
+      <%# r.check_box "Monday", {}, "Monday" %>
+    </div>
+    <div class="field">
+      <%# r.label "Tuesday" %>
+      <%# r.check_box "Tuesday", {}, "Tuesday" %>
+    </div>
+    <div class="field">
+      <%# r.label "Wednesday" %>
+      <%# r.check_box "Wednesday", {}, "Wednesday" %>
+    </div>
+    <div class="field">
+      <%# r.label "Thursday" %>
+      <%# r.check_box "Thursday", {}, "Thursday" %>
+    </div>
+    <div class="field">
+      <%# r.label "Friday" %>
+      <%# r.check_box "Friday", {}, "Friday" %>
+    </div>
+    <div class="field">
+      <%# r.label "Saturday" %>
+      <%# r.check_box "Saturday", {}, "Saturday" %>
+    </div>
+    <div class="field">
+      <%# r.label "Sunday" %>
+      <%# r.check_box "Sunday", {}, "Sunday" %>
+    <%# end %>
+
+
+
+  <%= f.submit  %>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304224054) do
+ActiveRecord::Schema.define(version: 20170305005700) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170304224054) do
     t.string   "city"
     t.string   "password_digest"
     t.integer  "organization_id", default: 1
+    t.text     "to_teach"
   end
 
   create_table "schoolings", force: :cascade do |t|
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 20170304224054) do
     t.string   "neighborhood"
     t.string   "city"
     t.string   "password_digest"
+    t.text     "to_learn"
   end
 
   create_table "work_experiences", force: :cascade do |t|

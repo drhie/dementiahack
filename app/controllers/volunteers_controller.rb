@@ -1,5 +1,5 @@
 class VolunteersController < ApplicationController
-  before_action :set_volunteer, only: [:show, :edit, :update, :new_profile, :destroy]
+  before_action :set_volunteer, only: [:show, :edit, :update, :new_profile, :create_profile, :new_availability, :create_availability, :destroy]
 
   # GET /volunteers
   # GET /volunteers.json
@@ -28,6 +28,8 @@ class VolunteersController < ApplicationController
 
     respond_to do |format|
       if @volunteer.save
+        session[:user_id] = @volunteer.id
+        session[:type] = @volunteer.class.name
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
         format.json { render :show, status: :created, location: @volunteer }
       else
@@ -40,7 +42,6 @@ class VolunteersController < ApplicationController
   # PATCH/PUT /volunteers/1
   # PATCH/PUT /volunteers/1.json
   def update
-    # @volunteer.hobbies.build()
     respond_to do |format|
       if @volunteer.update(volunteer_params)
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
@@ -62,6 +63,7 @@ class VolunteersController < ApplicationController
     @specialization = ["Genetics", "Commerce", "International Relations", "Computer Science"]
     @industry = ["Retail", "Research", "Translation", "IT"]
     @cultural_background = ['German', 'Indian', 'Korean', 'Chinese']
+    @availability = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Breakfast', 'Lunch', 'Evening', 'Morning', 'Afternoon', 'Evening']
     @volunteer.hobbies.build
     @volunteer.languages.build
     @volunteer.cultural_backgrounds.build
@@ -69,6 +71,19 @@ class VolunteersController < ApplicationController
     @volunteer.schoolings.build
     @volunteer.skills.build
     @volunteer.work_experiences.build
+  end
+
+  def create_profile
+    respond_to do |format|
+      if @volunteer.update(volunteer_params)
+        format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
+        format.json { render :show, status: :ok, location: @volunteer }
+      else
+        byebug
+        format.html { render :edit }
+        format.json { render json: @volunteer.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /volunteers/1
@@ -85,6 +100,17 @@ class VolunteersController < ApplicationController
     Availability.check_availabilities(@volunteer)
   end
 
+  def new_availability
+  end
+
+  def create_availability
+    availabilities = params['availability']['timeslot']
+    availabilities.each do |availability|
+      Availability.create(timeslot: availability, volunteer_id: @volunteer.id)
+    end
+    redirect_to volunteer_path(@volunteer)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_volunteer
@@ -93,7 +119,7 @@ class VolunteersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def volunteer_params
-      params.require(:volunteer).permit(:first_name, :last_name, :email, :neighborhood, :city, :password, :password_confirmation,
+      params.require(:volunteer).permit(:first_name, :last_name, :email, :to_learn, :neighborhood, :city, :password, :password_confirmation,
       hobbies_attributes: [ :id, :name, :_destroy ],
       languages_attributes: [ :id, :language, :_destroy ],
       cultural_backgrounds_attributes: [ :id, :background, :_destroy],
@@ -101,7 +127,5 @@ class VolunteersController < ApplicationController
       schoolings_attributes: [ :id, :name, :level, :specialization, :_destroy ],
       skills_attributes: [ :id, :name, :_destroy ],
       work_experiences_attributes: [ :id, :industry,  :_destroy ])
-
-
     end
 end
