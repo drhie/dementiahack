@@ -1,0 +1,133 @@
+
+<h1><%= @volunteer.first_name %>
+<%= @volunteer.last_name %></h1>
+<% if @volunteer.hobbies.any? %>
+  <div class="field">
+    <h4>Your hobbies:</h4>
+    <% @volunteer.hobbies.each do |hobby| %>
+      <p><%= hobby.name %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.schoolings.any? %>
+  <div class="field">
+    <h4>Your schooling information:</h4>
+    <% @volunteer.schoolings.each do |schooling| %>
+      <p><%= schooling.name %></p>
+      <p><%= schooling.level %></p>
+      <p><%= schooling.specialization %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.languages.any? %>
+  <div class="field">
+    <h4>Your languages:</h4>
+    <% @volunteer.languages.each do |language| %>
+      <p><%= language.language %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.cultural_backgrounds.any? %>
+  <div class="field">
+    <h4>Your cultural background:</h4>
+    <% @volunteer.cultural_backgrounds.each do |cultural_background| %>
+      <p><%= cultural_background.background %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.work_experiences.any? %>
+  <div class="field">
+    <h4>Your industry:</h4>
+    <% @volunteer.work_experiences.each do |industry| %>
+      <p><%= industry.industry %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.availabilities.any? %>
+  <div class="field">
+    <h4>Your availabilities:</h4>
+    <% @volunteer.availabilities.each do |availability| %>
+      <p><%= availability.timeslot %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @volunteer.to_learn != "" %>
+  <div class="field">
+    <h4>You want to learn this:</h4>
+    <%= @volunteer.to_learn %>
+  </div>
+<% end %>
+
+
+<br><br><br><br><br><br><br><br>
+
+<h1><%= @pwd.first_name %>
+<%= @pwd.last_name %></h1>
+<% if @pwd.hobbies.any? %>
+  <div class="field">
+    <h4>Your hobbies:</h4>
+    <% @pwd.hobbies.each do |hobby| %>
+      <p><%= hobby.name %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @pwd.schoolings.any? %>
+  <div class="field">
+    <h4>Your schooling information:</h4>
+    <% @pwd.schoolings.each do |schooling| %>
+      <p><%= schooling.name %></p>
+      <p><%= schooling.level %></p>
+      <p><%= schooling.specialization %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @pwd.languages.any? %>
+  <div class="field">
+    <h4>Your languages:</h4>
+    <% @pwd.languages.each do |language| %>
+      <p><%= language.language %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @pwd.cultural_backgrounds.any? %>
+  <div class="field">
+    <h4>Your cultural background:</h4>
+    <% @pwd.cultural_backgrounds.each do |cultural_background| %>
+      <p><%= cultural_background.background %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @pwd.work_experiences.any? %>
+  <div class="field">
+    <h4>Your industry:</h4>
+    <% @pwd.work_experiences.each do |industry| %>
+      <p><%= industry.industry %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @pwd.availabilities.any? %>
+  <div class="field">
+    <h4>Your availabilities:</h4>
+    <% @pwd.availabilities.each do |availability| %>
+      <p><%= availability.timeslot %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @pwd.to_teach != "" %>
+  <div class="field">
+    <h4>You want to teach this:</h4>
+    <%= @pwd.to_teach %>
+  </div>
+<% end %>

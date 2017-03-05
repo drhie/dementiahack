@@ -55,10 +55,10 @@ class VolunteersController < ApplicationController
   end
 
   def new_profile
-    @hobbies = ["Cards", "Squash", "Ping Pong"]
+    @hobbies = ["Cards", "Squash", "Ping Pong", ""]
     @interaction = ["Individual", "Small Group", "Large Group"]
     @language = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French']
-    @school = ["University of Toronto", "University of Waterloo", "George Brown College"]
+    @school = ["University of Toronto", "University of Waterloo", "George Brown College", "Ryerson", "York University", "Seneca College"]
     @level = ["High School", "Postsecondary", "Graduate", "Doctorate"]
     @specialization = ["Genetics", "Commerce", "International Relations", "Computer Science"]
     @industry = ["Retail", "Research", "Translation", "IT"]
