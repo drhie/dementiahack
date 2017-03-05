@@ -57,3 +57,11 @@ textarea {
   height: 80px;
   font-size: 1.2em;
 }
+
+.checkbox-container{
+  text-align: right;
+}
+
+.avail-container{
+  margin-right: 42%;
+}
