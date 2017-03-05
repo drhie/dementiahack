@@ -8,6 +8,7 @@ class Match < ApplicationRecord
     hashes << Availability.check_availabilities(user)
     hashes << Hobby.match_hobbies(user)
     hashes << CulturalBackground.match_cultural_backgrounds(user)
+    hashes << Interaction.match_interactions(user)
     hashes.each do |hash|
       hash.each do |m|
       if match_hash.has_key?(m[0])
@@ -18,10 +19,10 @@ class Match < ApplicationRecord
     end
   end
 
-    match_hash.each do |match|
-      Match.create(pwd_id: user.id, volunteer_id: match[0], match_score: match[1]) if Match.where(pwd_id: user.id, volunteer_id: match[0]).empty?
-    end
-    Match.all.where(pwd_id: user.id).order(match_score: :desc)
+  match_hash.each do |match|
+    Match.create(pwd_id: user.id, volunteer_id: match[0], match_score: match[1]) if Match.where(pwd_id: user.id, volunteer_id: match[0]).empty?
+  end
+  Match.all.where(pwd_id: user.id).order(match_score: :desc)
 
   end
 end
