@@ -1,5 +1,6 @@
-
-<h1><%= @volunteer.first_name %>
+<div class="match">
+  <div class="vol-match">
+    <h1><%= @volunteer.first_name %>
 <%= @volunteer.last_name %></h1>
 <% if @volunteer.hobbies.any? %>
   <div class="field">
@@ -57,15 +58,16 @@
   </div>
 <% end %>
 
-<% if @volunteer.to_learn != "" %>
+<% if @volunteer.to_learn == "" %>
   <div class="field">
     <h4>You want to learn this:</h4>
     <%= @volunteer.to_learn %>
   </div>
 <% end %>
+</div>
 
 
-<br><br><br><br><br><br><br><br>
+<div class="pwd-match">
 
 <h1><%= @pwd.first_name %>
 <%= @pwd.last_name %></h1>
@@ -131,3 +133,5 @@
     <%= @pwd.to_teach %>
   </div>
 <% end %>
+</div>
+</div>
