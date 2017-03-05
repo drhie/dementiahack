@@ -9,6 +9,7 @@ class Match < ApplicationRecord
     hashes << Hobby.match_hobbies(user)
     hashes << CulturalBackground.match_cultural_backgrounds(user)
     hashes << Interaction.match_interactions(user)
+    hashes << Language.match_languages(user)
     hashes.each do |hash|
       hash.each do |m|
       if match_hash.has_key?(m[0])

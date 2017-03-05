@@ -10,16 +10,18 @@
     <h1>log in</h1>
     <%= form_tag sessions_path, method: :post do %>
     <div class="field">
-      <% text_field_tag :email %>
-      <input type="text" placeholder="Email">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+      <!-- <input type="text" placeholder="Email"> -->
     </div>
     <div class="field">
-      <% password_field_tag :password %>
-      <input type="password" placeholder="Password">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <!-- <input type="password" placeholder="Password"> -->
     </div>
     <div class="actions">
-      <% submit_tag "Log In" %>
-      <button class="btn waves-effect blue lighten-1" type="submit" name="action">Sign In</button>
+      <%= submit_tag "Log In" %>
+      <!-- <button class="btn waves-effect blue lighten-1" type="submit" name="action">Sign In</button> -->
     </div>
 
     <% end %>

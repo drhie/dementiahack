@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     user = Pwd.find_by(email: params[:email]) || Volunteer.find_by(email: params[:email])
+    byebug
     if user
       session[:user_id] = user.id
       session[:type] = user.class.name
