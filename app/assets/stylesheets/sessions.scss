@@ -101,6 +101,9 @@ footer {
     color: white;
     font-weight: 900;
   }
+  .button:hover {
+    background: $tertiary-color
+  }
 
   .button {
     display: inline-block;
@@ -139,6 +142,11 @@ footer {
     display: inline-block;
     width: 50%;
     margin: 0;
+  }
+
+  a:hover {
+    background-color: #D5D5D5;
+    color: black;
   }
 }
 

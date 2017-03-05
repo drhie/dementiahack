@@ -13,7 +13,21 @@
 
   <body>
     <div class="nav-bar">
-      <div class="logo"><%= image_tag(("brain.png"), id: "brain") %><h1 class="title"><%= link_to "ConnectDem", root_url %></h1></div>
+      <div class="logo">
+        <%= image_tag(("brain.png"), id: "brain") %>
+        <h1 class="title">
+            <% if session[:user_id] %>
+              <% if session[:type] == "Volunteer" %>
+                <%= link_to "ConnectDem", volunteer_path(session[:user_id]) %>
+              <% end %>
+              <% if session[:type] == "Pwd" %>
+                <%= link_to "ConnectDem", pwd_path(session[:user_id]) %>
+              <% end %>
+            <% else %>
+              <%= link_to "ConnectDem", root_url %>
+            <% end %>
+        </h1>
+      </div>
       <% if session[:user_id]  %>
         <div class="link-bar">
           <% if session[:type] == "Volunteer" %>
@@ -38,9 +52,6 @@
     <div class="shell">
       <% if flash[:alert] %>
         <%= flash[:alert] %>
-      <% end %>
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
       <% end %>
       <%= yield %>
     </div>
