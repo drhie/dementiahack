@@ -16,7 +16,7 @@
       <div class="logo"><%= image_tag(("brain.png"), id: "brain") %><h1 class="title"><%= link_to "ConnectDem", root_url %></h1></div>
       <% if session[:user_id]  %>
         <div class="link-bar">
-          <%= link_to 'Edit', edit_volunteer_path(@volunteer.id) %>
+          <%= link_to 'Edit', edit_volunteer_path(session[:user_id]) %>
           <%= link_to 'Set Up Profile', new_profile_path %>
           <%= link_to 'Set Availability', new_availability_path %>
           <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
