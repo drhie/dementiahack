@@ -1,23 +1,27 @@
-<%= form_tag '/create_pwd_availability', method: :post %>
+<div class="avail-container">
+  <div class="checkbox-container">
+    <br>
+  <%= form_tag '/create_pwd_availability', method: :post %>
   <%= label_tag "Monday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Monday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Monday' %> <br>
   <%= label_tag "Tuesday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Tuesday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Tuesday' %> <br>
   <%= label_tag "Wednesday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Wednesday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Wednesday' %> <br>
   <%= label_tag "Thursday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Thursday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Thursday' %> <br>
   <%= label_tag "Friday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Friday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Friday' %> <br>
   <%= label_tag "Saturday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Saturday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Saturday' %> <br>
   <%= label_tag "Sunday" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Sunday' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Sunday' %> <br>
   <%= label_tag "Morning" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Morning' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Morning' %> <br>
   <%= label_tag "Afternoon" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Afternoon' %>
+  <%= check_box_tag 'availability[timeslot][]', 'Afternoon' %> <br>
   <%= label_tag "Evening" %>
-  <%= check_box_tag 'availability[timeslot][]', 'Evening' %>
-
+  <%= check_box_tag 'availability[timeslot][]', 'Evening' %> <br>
+  </div>
+</div>
 <%= submit_tag "Submit Availability" %>
