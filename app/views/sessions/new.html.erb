@@ -1,14 +1,69 @@
-<h1>Log In</h1>
-<%= form_tag sessions_path, method: :post do %>
-  <div class="field">
-    <%= label_tag :email %><br/>
-    <%= text_field_tag :email %>
+
+<div class="top-bar">
+  <h1 class="title">MINDR</h1>
+</div>
+
+
+<div class="container">
+  <div class="log-in">
+
+    <h1>log in</h1>
+    <%= form_tag sessions_path, method: :post do %>
+    <div class="field">
+      <% text_field_tag :email %>
+      <input type="text" placeholder="Email">
+    </div>
+    <div class="field">
+      <% password_field_tag :password %>
+      <input type="password" placeholder="Password">
+    </div>
+    <div class="actions">
+      <% submit_tag "Log In" %>
+      <button class="btn waves-effect blue lighten-1" type="submit" name="action">Sign In</button>
+    </div>
+
+    <% end %>
+
   </div>
-  <div class="field">
-    <%= label_tag :password %><br/>
-    <%= password_field_tag :password %>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <h1>log in</h1>
+
+<div class="container">
+
+  <div class="log-in">
+    <form class="col s12">
+      <div class="row">
+        <div class="field col s6">
+          <label for="first_name">First Name</label>
+          <input id="first_name" type="text" class="validate">
+        </div>
+        <div class="field col s6">
+          <label for="last_name">Last Name</label>
+          <input id="last_name" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field col s12">
+          <label for="email">Email</label>
+          <input id="email" type="email" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field col s12">
+          <label for="password">Password</label>
+          <input id="password" type="password" class="validate">
+        </div>
+        <button class="btn waves-effect blue lighten-1" type="submit" name="action"><a href="<%= sessions_path %>" method="post">Sign In</a></button>
+    </form>
   </div>
-  <div class="actions">
-    <%= submit_tag "Log In" %>
-  </div>
-<% end %>
+
+</div> -->

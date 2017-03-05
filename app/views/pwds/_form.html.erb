@@ -1,3 +1,6 @@
+
+<div class="container">
+
 <%= form_for(pwd) do |f| %>
   <% if pwd.errors.any? %>
     <div id="error_explanation">
@@ -32,7 +35,9 @@
     <%= f.password_field :password_confirmation %>
   </div>
 
-  <div class="actions">
+  <div class="btn waves-effect blue lighten-1">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

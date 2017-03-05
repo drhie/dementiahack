@@ -1,3 +1,76 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*,
+*:before,
+*:after
+{
+    box-sizing: border-box;
+}
+
+// --------------------------------------------------------------------------------
+
+@media (min-width: 480px)
+{
+}
+
+// --------------------------------------------------------------------------------
+
+
+@media (min-width: 600px)
+{
+}
+
+// --------------------------------------------------------------------------------
+
+@media (min-width: 850px)
+{
+}
+
+// --------------------------------------------------------------------------------
+
+body
+{
+    margin: 0;
+
+}
+
+
+.top-bar
+{
+    height: 120px;
+    margin: 0 0 40px;
+
+    background-color: #64b5f6;
+}
+
+h1.title
+{
+    font-family: sans-serif;
+    line-height: 120px;
+
+    color: black;
+}
+
+h1
+{
+    font-family: sans-serif;
+    font-variant: small-caps;
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #01bcff;
+}
+
+.btn
+{
+    width: 100%;
+}
+
+.footer
+{
+    width: 100%;
+    margin: 190px 0 0;
+
+    text-align: center;
+}
