@@ -16,14 +16,21 @@
       <div class="logo"><%= image_tag(("brain.png"), id: "brain") %><h1 class="title"><%= link_to "ConnectDem", root_url %></h1></div>
       <% if session[:user_id]  %>
         <div class="link-bar">
-          <%= link_to 'Edit', edit_volunteer_path(session[:user_id]) %>
-          <%= link_to 'Set Up Profile', new_profile_path %>
-          <%= link_to 'Set Availability', new_availability_path %>
+          <% if session[:type] == "Volunteer" %>
+            <%= link_to 'Edit Login Info', edit_volunteer_path(session[:user_id]) %>
+            <%= link_to 'Set Up Profile', new_profile_path %>
+            <%= link_to 'Set Availability', new_availability_path %>
+          <% end %>
+          <% if session[:type] == "Pwd" %>
+            <%= link_to 'Edit Login Info', edit_pwd_path(session[:user_id]) %>
+            <%= link_to 'Set Up Profile', new_pwd_profile_path %>
+            <%= link_to 'Set Availability', new_pwd_availability_path %>
+          <% end %>
           <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
         </div>
       <% else %>
         <div class="login-bar">
-          Have an account already? <%= link_to "Log in", new_session_path %>
+          <p>Have an account already?</p><%= link_to "Log in", new_session_path %>
         </div>
       <% end %>
     </div>

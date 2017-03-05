@@ -10,9 +10,6 @@
           <%= r.select :name, (@hobbies), include_blank: true %>
         </div>
       <% end %>
-      <div class = "button">
-        <%# link_to_add_association 'Add Hobby', f, :hobbies %>
-      </div>
 
       <%= f.fields_for :languages do |r| %>
         <div class="field">
@@ -20,9 +17,7 @@
           <%= r.select :language, (@language),  include_blank: true %>
         </div>
       <% end %>
-      <div class = "button">
-        <%# link_to_add_association 'Add Language', f, :languages %>
-      </div>
+
 
       <%= f.fields_for :interactions do |r| %>
         <div class="field">
@@ -64,39 +59,7 @@
       <%= f.label "What would you like to teach?"  %>
       <%= f.text_area :to_teach %>
 
-      <%# f.fields_for :availabilities do |r| %>
-        <div class="field">
-          <%# r.label "Monday" %>
-          <%# r.check_box "Monday", {}, "Monday" %>
-        </div>
-        <div class="field">
-          <%# r.label "Tuesday" %>
-          <%# r.check_box "Tuesday", {}, "Tuesday" %>
-        </div>
-        <div class="field">
-          <%# r.label "Wednesday" %>
-          <%# r.check_box "Wednesday", {}, "Wednesday" %>
-        </div>
-        <div class="field">
-          <%# r.label "Thursday" %>
-          <%# r.check_box "Thursday", {}, "Thursday" %>
-        </div>
-        <div class="field">
-          <%# r.label "Friday" %>
-          <%# r.check_box "Friday", {}, "Friday" %>
-        </div>
-        <div class="field">
-          <%# r.label "Saturday" %>
-          <%# r.check_box "Saturday", {}, "Saturday" %>
-        </div>
-        <div class="field">
-          <%# r.label "Sunday" %>
-          <%# r.check_box "Sunday", {}, "Sunday" %>
-        <%# end %>
-
-
-
-      <%= f.submit  %>
+      <%= f.submit "Create Profile" %>
     <% end %>
   </div>
 </div>

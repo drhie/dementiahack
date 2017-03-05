@@ -55,13 +55,13 @@ class VolunteersController < ApplicationController
   end
 
   def new_profile
-    @hobbies = ["Cards", "Squash", "Ping Pong"]
+    @hobbies = ["Cards", "Squash", "Ping Pong", "Dance", "Drawing", "Fantasy Sports", "Knitting", "Puzzles", "Pottery", "Yoga"]
     @interaction = ["Individual", "Small Group", "Large Group"]
-    @language = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French']
-    @school = ["University of Toronto", "University of Waterloo", "George Brown College"]
-    @level = ["High School", "Postsecondary", "Graduate", "Doctorate"]
+    @language = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French', "Portugese", "Bengali", "Russian", "Swedish"]
+    @school = ["University of Toronto", "University of Waterloo", "University of Windsor", "George Brown College", "McMaster University", "Laurentian University", "OCAD University", "Queen's University", "Ryerson University", "Trent University", "University of Guelph", "University of Ontario Institute of Technology", "University of Ottawa", "Wilfrid Laurier University", "York University"]
+    @level = ["High School", "Postsecondary", "Graduate", "Doctorate", "Undergrad"]
     @specialization = ["Genetics", "Commerce", "International Relations", "Computer Science"]
-    @industry = ["Retail", "Research", "Translation", "IT"]
+    @industry = ["Retail", "Research", "Translation", "IT", "Accountant", "Charity and Voluntary Work", "Business Consulting", "Banking", "Computer Networking", "Broadcast Media", "Education", "Entertainment", "Farming", "Judiciary", "Insurance", "Graphic Design", "Hospitality", "Insurance", "Trade"]
     @cultural_background = ['German', 'Indian', 'Korean', 'Chinese']
     @availability = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Breakfast', 'Lunch', 'Evening', 'Morning', 'Afternoon', 'Evening']
     @volunteer.hobbies.build
@@ -76,7 +76,7 @@ class VolunteersController < ApplicationController
   def create_profile
     respond_to do |format|
       if @volunteer.update(volunteer_params)
-        format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
+        format.html { redirect_to @volunteer }
         format.json { render :show, status: :ok, location: @volunteer }
       else
         byebug
@@ -91,7 +91,7 @@ class VolunteersController < ApplicationController
   def destroy
     @volunteer.destroy
     respond_to do |format|
-      format.html { redirect_to volunteers_url, notice: 'Volunteer was successfully destroyed.' }
+      format.html { redirect_to volunteers_url }
       format.json { head :no_content }
     end
   end
