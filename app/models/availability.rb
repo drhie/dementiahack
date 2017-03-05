@@ -35,7 +35,7 @@ class Availability < ApplicationRecord
         final_non_matched_availabilities
 
             final_non_matched_availabilities.each do |avail|
-              matched_ppl_non_matched_availability << [Availability.find(avail).volunteer, Availability.find(avail).timeslot] if matched_people.include?(Volunteer.find(Availability.find(avail).volunteer_id))
+              matched_ppl_non_matched_availability << [Availability.find(avail).volunteer, Availability.find(avail).timeslot] if Availability.find(avail).volunteer_id != nil && matched_people.include?(Volunteer.find(Availability.find(avail).volunteer_id))
             end
 
 
@@ -105,7 +105,7 @@ class Availability < ApplicationRecord
         final_non_matched_availabilities
 
             final_non_matched_availabilities.each do |avail|
-              matched_ppl_non_matched_availability << [Availability.find(avail).volunteer, Availability.find(avail).timeslot] if matched_people.include?(Volunteer.find(Availability.find(avail).volunteer_id))
+              matched_ppl_non_matched_availability << [Availability.find(avail).volunteer, Availability.find(avail).timeslot] if (Availability.find(avail).volunteer_id) != nil && matched_people.include?(Volunteer.find(Availability.find(avail).volunteer_id))
             end
 
         matched_ppl_non_matched_availability

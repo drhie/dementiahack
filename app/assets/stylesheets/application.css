@@ -72,3 +72,14 @@ textarea {
 
 .avail-container form{
 }
+
+/*.match{
+  display: inline-block;
+}*/
+
+.vol-match, .pwd-match{
+  width: 49%;
+  display: inline-block;
+  margin-top: 0;
+  vertical-align: top;
+}
