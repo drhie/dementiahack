@@ -19,7 +19,6 @@ class Match < ApplicationRecord
   end
 
     match_hash.each do |match|
-      byebug
       Match.create(pwd_id: user.id, volunteer_id: match[0], match_score: match[1]) if Match.where(pwd_id: user.id, volunteer_id: match[0]).empty?
     end
     Match.all.where(pwd_id: user.id).order(match_score: :desc)

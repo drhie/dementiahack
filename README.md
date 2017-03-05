@@ -1,24 +1,6 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Display the matches
+- Get that nested attributes working
+- Fill out the rest of the fields for match_fields
+- Check what fields matched and what didn't match
+- Incorporate the rest of the matches in the calculate_match
+- Front-end!!!! (home page, sign up, login, profile, availability, match show page)
