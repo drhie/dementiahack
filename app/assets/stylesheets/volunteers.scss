@@ -1,3 +1,48 @@
 // Place all the styles related to the Volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*,
+*:before,
+*:after
+{
+    box-sizing: border-box;
+}
+
+// --------------------------------------------------------------------------------
+
+@media (min-width: 480px)
+{
+}
+
+// --------------------------------------------------------------------------------
+
+
+@media (min-width: 600px)
+{
+}
+
+// --------------------------------------------------------------------------------
+
+@media (min-width: 850px)
+{
+}
+
+// --------------------------------------------------------------------------------
+
+
+td
+{
+    padding: 15 auto;
+
+    text-align: center;
+}
+
+h1
+{
+    font-family: sans-serif;
+    font-variant: small-caps;
+
+    margin: 0;
+
+    text-align: center;
+}

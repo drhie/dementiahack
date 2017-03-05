@@ -28,6 +28,8 @@ class VolunteersController < ApplicationController
 
     respond_to do |format|
       if @volunteer.save
+        session[:user_id] = @volunteer.id
+        session[:type] = @volunteer.class.name
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
         format.json { render :show, status: :created, location: @volunteer }
       else
