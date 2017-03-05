@@ -55,6 +55,7 @@ class VolunteersController < ApplicationController
   end
 
   def new_profile
+
     @hobbies = ["Cards", "Squash", "Ping Pong", "Dance", "Drawing", "Fantasy Sports", "Knitting", "Puzzles", "Pottery", "Yoga"]
     @interaction = ["Individual", "Small Group", "Large Group"]
     @language = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French', "Portugese", "Bengali", "Russian", "Swedish"]

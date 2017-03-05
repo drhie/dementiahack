@@ -1,0 +1,25 @@
+<h1>Top Matches</h1>
+<h2> Matches </h2>
+<h3> Volunteer | Match Score </h3>
+<% @matches.each do |match| %>
+<h4> <%= Volunteer.find(match.volunteer_id).first_name %>, <%= Volunteer.find(match.volunteer_id).last_name %> | <%= match.match_score %> <br > </h4>
+<%= link_to "Details", show_match_path(match) %>
+<br>
+<h5> Matched Availabilities </h5>
+<% @matched_people_matched_availabilities.each do |avail| %>
+  <%= avail.timeslot if avail.volunteer_id == match.volunteer_id %>
+<% end %>
+
+
+<h5> Non-Matched Availabilities </h5>
+<% @matched_people_non_matched_availabilities.each do |non_avail| %>
+<%= non_avail[1] if non_avail[0].id == match.volunteer_id %>
+  <% end %>
+<br>
+
+<br><br><br><br><br><br>
+<% end %>
+
+<%= @matched_people_matched_availabilities %>
+<br><br>
+<%= @matched_people_non_matched_availabilities %>

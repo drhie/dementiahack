@@ -111,6 +111,62 @@ Hobby.create(
   pwd_id: 2
 )
 
+Skill.create(
+name: "project management",
+volunteer_id: 1
+)
+
+Skill.create(
+name: "time management",
+volunteer_id: 1
+)
+
+Skill.create(
+name: "time management",
+pwd_id: 1
+)
+
+Skill.create(
+name: "organization",
+pwd_id: 1
+)
+
+Schooling.create(
+  specialization: "IT",
+  volunteer_id: 1
+)
+Schooling.create(
+  specialization: "Commerce",
+  volunteer_id: 1
+)
+Schooling.create(
+  specialization: "Commerce",
+  pwd_id: 1
+)
+Schooling.create(
+  specialization: "Genetics",
+  pwd_id: 1
+)
+
+
+
+WorkExperience.create(
+  industry: "Retail",
+  volunteer_id: 1
+)
+WorkExperience.create(
+  industry: "Research",
+  volunteer_id: 1
+)
+WorkExperience.create(
+  industry: "Retail",
+  pwd_id: 1
+)
+WorkExperience.create(
+  industry: "Research",
+  pwd_id: 1
+)
+
 # Match.create(
 #   volunteer_id: 1,
 #   pwd_id:       1

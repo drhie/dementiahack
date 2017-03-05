@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/get_matches' => "matches#get_matches", as: :get_matches
+  get '/show_match/:id' => "matches#show_match", as: :show_match
 end
