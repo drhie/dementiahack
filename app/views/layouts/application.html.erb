@@ -12,9 +12,23 @@
 
   <body>
     <% if flash.any? %>
-      <%= flash %>
+      <%= flash.message %>
     <% end %>
-    <%= yield %>
+    <div class="nav-bar">
+      <h1 class="title">ConnectDem</h1>
+      <% if session[:user_id] != nil  %>
+      <div class="link-bar">
+        <%= link_to 'Edit', edit_volunteer_path(@volunteer) %>
+        <%= link_to 'Back', volunteers_path %>
+        <%= link_to 'Set Up Profile', new_profile_path %>
+        <%= link_to 'Set Availability', new_availability_path %>
+        <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
+      </div>
+      <% end %>
+    </div>
+    <div class="shell">
+      <%= yield %>
+    </div>
   </body>
   <body>
     <footer>
