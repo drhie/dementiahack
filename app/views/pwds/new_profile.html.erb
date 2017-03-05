@@ -4,9 +4,8 @@
       <h1>Hi <%= @pwd.first_name %> <%= @pwd.last_name %>! Create your profile!</h1>
 
       <%= f.fields_for :hobbies do |r| %>
-        <div class="field hobbies">
-          <%= r.label "Hobby/Interest" %>
-          <%# r.text_field :name %>
+        <div class="field">
+          <%= r.label :hobbies %>
           <%= r.select :name, (@hobbies), include_blank: true %>
         </div>
       <% end %>
@@ -18,6 +17,13 @@
         </div>
       <% end %>
 
+      <%= f.fields_for :cultural_backgrounds do |r| %>
+      <div class="field">
+        <%= r.label :background %>
+        <%= r.select :background, (@cultural_background),  include_blank: true %>
+      </div>
+      <% end %>
+
 
       <%= f.fields_for :interactions do |r| %>
         <div class="field">
@@ -26,7 +32,7 @@
         </div>
       <% end %>
 
-    <h2>Schooling Info</h2>
+    <h2>School and Work Info</h2>
       <%= f.fields_for :schoolings do |r| %>
         <div class="field">
           <%= r.label "Name of School" %>
@@ -46,13 +52,6 @@
         <div class="field">
           <%= r.label :industry %>
           <%= r.select :industry, (@industry),  include_blank: true %>
-        </div>
-      <% end %>
-
-      <%= f.fields_for :cultural_backgrounds do |r| %>
-        <div class="field">
-          <%= r.label :background %>
-          <%= r.select :background, (@cultural_background),  include_blank: true %>
         </div>
       <% end %>
 

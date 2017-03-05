@@ -10,12 +10,19 @@
           <%= r.select :name, (@hobbies), include_blank: true %>
         </div>
       <% end %>
-      
+
       <%= f.fields_for :languages do |r| %>
         <div class="field">
           <%= r.label :language %>
           <%= r.select :language, (@language),  include_blank: true %>
         </div>
+      <% end %>
+
+      <%= f.fields_for :cultural_backgrounds do |r| %>
+      <div class="field">
+        <%= r.label :background %>
+        <%= r.select :background, (@cultural_background),  include_blank: true %>
+      </div>
       <% end %>
 
 
@@ -26,7 +33,7 @@
         </div>
       <% end %>
 
-    <h2>Schooling Info</h2>
+    <h2>School and Work Info</h2>
       <%= f.fields_for :schoolings do |r| %>
         <div class="field">
           <%= r.label "Name of School" %>
@@ -46,13 +53,6 @@
         <div class="field">
           <%= r.label :industry %>
           <%= r.select :industry, (@industry),  include_blank: true %>
-        </div>
-      <% end %>
-
-      <%= f.fields_for :cultural_backgrounds do |r| %>
-        <div class="field">
-          <%= r.label :background %>
-          <%= r.select :background, (@cultural_background),  include_blank: true %>
         </div>
       <% end %>
 
