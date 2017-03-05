@@ -6,7 +6,8 @@ class Availability < ApplicationRecord
     availabilities = []
     user.availabilities.each do |user_availability|
       Availability.all.each do |availability|
-        availabilities << availability if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil
+        availabilities << availability if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
+        availabilities << availability if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
       end
     end
     availabilities

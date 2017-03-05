@@ -15,6 +15,16 @@ Volunteer.create(
   password:   "asdf"
 )
 
+Hobby.create(
+  name: "Cards",
+  volunteer_id: 1
+)
+
+Hobby.create(
+  name: "Soccer",
+  volunteer_id: 1
+)
+
 Volunteer.create(
   first_name: "Sahani",
   last_name:  "Sahani",
@@ -23,6 +33,17 @@ Volunteer.create(
   city:        "Toronto",
   password:   "asdf"
 )
+
+Hobby.create(
+  name: "Ping Pong",
+  volunteer_id: 2
+)
+
+Hobby.create(
+  name: "Squash",
+  volunteer_id: 2
+)
+
 
 Organization.create(
 name:       "Independent",
@@ -48,7 +69,16 @@ Pwd.create(
   neighborhood: "Etobicoke",
   city:        "Toronto",
   password:   "asdf",
+)
 
+Hobby.create(
+  name: "Cards",
+  pwd_id: 1
+)
+
+Hobby.create(
+  name: "Ping Pong",
+  pwd_id: 1
 )
 
 Pwd.create(
@@ -61,12 +91,52 @@ Pwd.create(
   password:   "asdf",
 )
 
-Match.create(
-  volunteer_id: 1,
-  pwd_id:       1
+Hobby.create(
+  name: "Cards",
+  pwd_id: 2
 )
 
-Match.create(
-  volunteer_id: 2,
-  pwd_id:       2
+Hobby.create(
+  name: "Ping Pong",
+  pwd_id: 2
+)
+
+Hobby.create(
+  name: "Squash",
+  pwd_id: 2
+)
+
+Hobby.create(
+  name: "Soccer",
+  pwd_id: 2
+)
+
+# Match.create(
+#   volunteer_id: 1,
+#   pwd_id:       1
+# )
+#
+# Match.create(
+#   volunteer_id: 2,
+#   pwd_id:       2
+# )
+
+Availability.create(
+  timeslot: "Wednesday",
+  volunteer_id: 1
+)
+
+Availability.create(
+  timeslot: "Thursday",
+  volunteer_id: 1
+)
+
+Availability.create(
+  timeslot: "Wednesday",
+  pwd_id: 1
+)
+
+Availability.create(
+  timeslot: "Monday",
+  pwd_id: 1
 )
