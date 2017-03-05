@@ -73,6 +73,10 @@ textarea {
 .avail-container form{
 }
 
+.disclaimer{
+  text-align: left;
+}
+
 /*.match{
   display: inline-block;
 }*/
@@ -82,4 +86,24 @@ textarea {
   display: inline-block;
   margin-top: 0;
   vertical-align: top;
+}
+
+#match-button {
+  width: 60%;
+  font-size: 1.7em;
+  display: inline-block;
+  text-align: center;
+  color: white;
+}
+#match-button a {
+  text-decoration: none;
+}
+
+#match-button:hover {
+  font-weight: 900;
+  background-color: #FC4A1A;
+}
+
+.container .button:hover {
+  background-color: #FC4A1A;
 }

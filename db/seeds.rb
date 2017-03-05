@@ -27,7 +27,7 @@ Schooling.destroy_all
 Volunteer.destroy_all
 WorkExperience.destroy_all
 
-25.times do
+50.times do
   p = Volunteer.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -36,17 +36,18 @@ WorkExperience.destroy_all
     password: "password"
   )
 
-  2.times do
-    p.hobbies.create!(
+  3.times do
+    hobby = @hobbies.sample
+    if p.hobbies.where(name: hobby).empty?
+      p.hobbies.create!(
       name: @hobbies.sample,
-    )
+      )
+    end
   end
 
-  2.times do
-    p.cultural_backgrounds.create!(
-      background: @cultural_background.sample,
-    )
-  end
+  p.cultural_backgrounds.create!(
+    background: @cultural_background.sample,
+  )
 
   p.interactions.create!(
     interaction: @interaction.sample,
@@ -66,10 +67,13 @@ WorkExperience.destroy_all
     industry: @industry.sample
   )
 
-  3.times do
-    p.availabilities.create!(
-      timeslot: @availability.sample
-    )
+  4.times do
+    avail = @availability.sample
+    if p.availabilities.where(timeslot: avail).empty?
+      p.availabilities.create!(
+        timeslot: avail
+      )
+    end
   end
 
 end
