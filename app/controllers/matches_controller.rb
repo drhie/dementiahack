@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :edit, :update, :get_matches, :destroy]
+  before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   # GET /matches
   # GET /matches.json
@@ -63,7 +63,14 @@ class MatchesController < ApplicationController
 
   def get_matches
     @user = Pwd.find(session[:user_id])
-    Match.calculate_match(@user)
+    @matches = Match.calculate_match(@user)
+    @matched_people_matched_availabilities = Availability.matched_people_matched_availabilities(@user)
+    @matched_people_non_matched_availabilities = Availability.matched_people_non_matched_availabilities(@user)
+  end
+
+  def show_match
+    @pwd = Pwd.find(session[:user_id])
+    @volunteer = Match.find(params[:id]).volunteer
   end
 
   private

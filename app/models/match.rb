@@ -3,6 +3,7 @@ class Match < ApplicationRecord
   belongs_to :pwd
 
   def self.calculate_match(user)
+    Match.destroy_all
     hashes = []
     match_hash = Hash.new
     hashes << Availability.check_availabilities(user)
@@ -10,6 +11,9 @@ class Match < ApplicationRecord
     hashes << CulturalBackground.match_cultural_backgrounds(user)
     hashes << Interaction.match_interactions(user)
     hashes << Language.match_languages(user)
+    hashes << Skill.match_skills(user)
+    hashes << Schooling.match_schoolings(user)
+    hashes << WorkExperience.match_work_ex(user)
     hashes.each do |hash|
       hash.each do |m|
       if match_hash.has_key?(m[0])
