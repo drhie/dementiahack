@@ -23,8 +23,26 @@
      padding: 0;
  }
 
+html {
+  font-family: "Nunito";
+  position: relative;
+  height: 100%;
+  font-size: 18px;
+}
+
 .shell {
   width: 100%;
   text-align: center;
   display: inline-block;
+  min-height: 100%;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 5px 2px;
+  font-size: 1.5em;
+}
+
+input[type="submit"] {
+  background: none;
+  border: none;
 }

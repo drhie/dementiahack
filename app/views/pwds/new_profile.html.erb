@@ -1,98 +1,102 @@
-<%= form_for @pwd, url: create_pwd_profile_path, method: :post do |f| %>
-  <h1>Hi <%= @pwd.first_name %> <%= @pwd.last_name %>! Create your profile!</h1>
+<div class="dashboard">
+  <div class="form">
+    <%= form_for @pwd, url: create_pwd_profile_path, method: :post do |f| %>
+      <h1>Hi <%= @pwd.first_name %> <%= @pwd.last_name %>! Create your profile!</h1>
 
-  <%= f.fields_for :hobbies do |r| %>
-    <div class="field hobbies">
-      <%= r.label "Hobby/Interest" %>
-      <%# r.text_field :name %>
-      <%= r.select :name, (@hobbies), include_blank: true %>
-    </div>
-  <% end %>
-  <div class = "button">
-    <%# link_to_add_association 'Add Hobby', f, :hobbies %>
+      <%= f.fields_for :hobbies do |r| %>
+        <div class="field hobbies">
+          <%= r.label "Hobby/Interest" %>
+          <%# r.text_field :name %>
+          <%= r.select :name, (@hobbies), include_blank: true %>
+        </div>
+      <% end %>
+      <div class = "button">
+        <%# link_to_add_association 'Add Hobby', f, :hobbies %>
+      </div>
+
+      <%= f.fields_for :languages do |r| %>
+        <div class="field">
+          <%= r.label :language %>
+          <%= r.select :language, (@language),  include_blank: true %>
+        </div>
+      <% end %>
+      <div class = "button">
+        <%# link_to_add_association 'Add Language', f, :languages %>
+      </div>
+
+      <%= f.fields_for :interactions do |r| %>
+        <div class="field">
+          <%= r.label :interaction %>
+          <%= r.select :interaction, (@interaction),  include_blank: true %>
+        </div>
+      <% end %>
+
+    <h2>Schooling Info</h2>
+      <%= f.fields_for :schoolings do |r| %>
+        <div class="field">
+          <%= r.label "Name of School" %>
+          <%= r.select :name, (@school),  include_blank: true  %>
+        </div>
+        <div class="field">
+          <%= r.label :level %>
+          <%= r.select :level, (@level), include_blank: true  %>
+        </div>
+        <div class="field">
+          <%= r.label :specialization %>
+          <%= r.select :specialization, (@specialization),  include_blank: true  %>
+        </div>
+      <% end %>
+
+      <%= f.fields_for :work_experiences do |r| %>
+        <div class="field">
+          <%= r.label :industry %>
+          <%= r.select :industry, (@industry),  include_blank: true %>
+        </div>
+      <% end %>
+
+      <%= f.fields_for :cultural_backgrounds do |r| %>
+        <div class="field">
+          <%= r.label :background %>
+          <%= r.select :background, (@cultural_background),  include_blank: true %>
+        </div>
+      <% end %>
+
+      <%= f.label "What would you like to teach?"  %>
+      <%= f.text_area :to_teach %>
+
+      <%# f.fields_for :availabilities do |r| %>
+        <div class="field">
+          <%# r.label "Monday" %>
+          <%# r.check_box "Monday", {}, "Monday" %>
+        </div>
+        <div class="field">
+          <%# r.label "Tuesday" %>
+          <%# r.check_box "Tuesday", {}, "Tuesday" %>
+        </div>
+        <div class="field">
+          <%# r.label "Wednesday" %>
+          <%# r.check_box "Wednesday", {}, "Wednesday" %>
+        </div>
+        <div class="field">
+          <%# r.label "Thursday" %>
+          <%# r.check_box "Thursday", {}, "Thursday" %>
+        </div>
+        <div class="field">
+          <%# r.label "Friday" %>
+          <%# r.check_box "Friday", {}, "Friday" %>
+        </div>
+        <div class="field">
+          <%# r.label "Saturday" %>
+          <%# r.check_box "Saturday", {}, "Saturday" %>
+        </div>
+        <div class="field">
+          <%# r.label "Sunday" %>
+          <%# r.check_box "Sunday", {}, "Sunday" %>
+        <%# end %>
+
+
+
+      <%= f.submit  %>
+    <% end %>
   </div>
-
-  <%= f.fields_for :languages do |r| %>
-    <div class="field">
-      <%= r.label :language %>
-      <%= r.select :language, (@language),  include_blank: true %>
-    </div>
-  <% end %>
-  <div class = "button">
-    <%# link_to_add_association 'Add Language', f, :languages %>
-  </div>
-
-  <%= f.fields_for :interactions do |r| %>
-    <div class="field">
-      <%= r.label :interaction %>
-      <%= r.select :interaction, (@interaction),  include_blank: true %>
-    </div>
-  <% end %>
-
-<h2>Schooling Info</h2>
-  <%= f.fields_for :schoolings do |r| %>
-    <div class="field">
-      <%= r.label "Name of School" %>
-      <%= r.select :name, (@school),  include_blank: true  %>
-    </div>
-    <div class="field">
-      <%= r.label :level %>
-      <%= r.select :level, (@level), include_blank: true  %>
-    </div>
-    <div class="field">
-      <%= r.label :specialization %>
-      <%= r.select :specialization, (@specialization),  include_blank: true  %>
-    </div>
-  <% end %>
-
-  <%= f.fields_for :work_experiences do |r| %>
-    <div class="field">
-      <%= r.label :industry %>
-      <%= r.select :industry, (@industry),  include_blank: true %>
-    </div>
-  <% end %>
-
-  <%= f.fields_for :cultural_backgrounds do |r| %>
-    <div class="field">
-      <%= r.label :background %>
-      <%= r.select :background, (@cultural_background),  include_blank: true %>
-    </div>
-  <% end %>
-
-  <%= f.label "What would you like to teach?"  %>
-  <%= f.text_area :to_teach %>
-
-  <%# f.fields_for :availabilities do |r| %>
-    <div class="field">
-      <%# r.label "Monday" %>
-      <%# r.check_box "Monday", {}, "Monday" %>
-    </div>
-    <div class="field">
-      <%# r.label "Tuesday" %>
-      <%# r.check_box "Tuesday", {}, "Tuesday" %>
-    </div>
-    <div class="field">
-      <%# r.label "Wednesday" %>
-      <%# r.check_box "Wednesday", {}, "Wednesday" %>
-    </div>
-    <div class="field">
-      <%# r.label "Thursday" %>
-      <%# r.check_box "Thursday", {}, "Thursday" %>
-    </div>
-    <div class="field">
-      <%# r.label "Friday" %>
-      <%# r.check_box "Friday", {}, "Friday" %>
-    </div>
-    <div class="field">
-      <%# r.label "Saturday" %>
-      <%# r.check_box "Saturday", {}, "Saturday" %>
-    </div>
-    <div class="field">
-      <%# r.label "Sunday" %>
-      <%# r.check_box "Sunday", {}, "Sunday" %>
-    <%# end %>
-
-
-
-  <%= f.submit  %>
-<% end %>
+</div>
