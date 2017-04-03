@@ -1,12 +1,6 @@
 class ResidentsController < ApplicationController
   before_action :set_resident, only: [:show, :edit, :update, :new_profile, :create_profile, :new_availability, :create_availability, :destroy]
 
-  # GET /residents
-  # GET /residents.json
-  def index
-    @residents = Resident.all
-  end
-
   # GET /residents/1
   # GET /residents/1.json
   def show

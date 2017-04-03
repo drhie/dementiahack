@@ -3,9 +3,6 @@
     <%= form_for @volunteer, url: create_profile_path, method: :post do |f| %>
       <h1>Hi <%= @volunteer.first_name %> <%= @volunteer.last_name %>! Create your profile!</h1>
 
-      <%= f.label 'Enter your age' %>
-      <%= f.select :age, (@age_ranges), include_blank: true %>
-
       <%= render 'form_partials/new_profile', f: f %>
 
       <%= f.label "What would you like to learn?"  %>

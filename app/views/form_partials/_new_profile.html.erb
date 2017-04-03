@@ -1,3 +1,8 @@
+<div class="field">
+  <%= f.label 'Enter your age' %>
+  <%= f.select :age, (@age_ranges), include_blank: true %>
+</div>
+
 <%= f.fields_for :hobbies do |r| %>
   <div class="field">
     <%= r.label :hobbies %>

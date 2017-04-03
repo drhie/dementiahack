@@ -6,10 +6,10 @@
 
 <p> Welcome to ConnectDem! Set up your profile, then set your availabilities, and find your perfect match!</p>
 
-<h4> Your age:</h4>
-  <div class="field">
-    <%= @resident.age %>
-  </div>
+<div class="field">
+  <h4> Your age:</h4>
+  <%= @resident.age %>
+</div>
 
 <% if @resident.hobbies.any? %>
   <div class="field">

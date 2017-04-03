@@ -3,7 +3,15 @@
 
   <div class="links">
     <p>Sign up as:</p>
-    <div class="button"><%= link_to "Volunteer", new_volunteer_path %></div>
-    <div class="button"><%= link_to "Resident", new_resident_path %></div>
+    <%= link_to new_volunteer_path do %>
+      <div class="button">
+        Volunteer
+      </div>
+    <% end %>
+    <%= link_to new_resident_path do %>
+      <div class="button">
+        Resident
+      </div>
+    <% end %>
   </div>
 </div>
