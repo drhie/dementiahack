@@ -57,13 +57,23 @@
       <p><%= availability.timeslot %></p>
     <% end %>
   </div>
+  <% end %>
 
+  <% if @resident.to_teach != "" %>
+    <div class="field">
+      <h4>You want to teach this:</h4>
+      <%= @resident.to_teach %>
+    </div>
+  <% end %>
 
-<% end %>
   <% if @resident.availabilities.any? %>
     <div class="button" id="match-button"><%= link_to 'Match', get_matches_path %></div>
   <% end %>
 </div>
+
+
+
+
 
 <br>
 <%= link_to 'Edit', edit_resident_path(@resident) %> |

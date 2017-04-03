@@ -62,12 +62,12 @@
     </div>
   <% end %>
 
-  <%# if @volunteer.to_learn != "" %>
-    <!-- <div class="field">
+  <% if @volunteer.to_learn != "" %>
+    <div class="field">
       <h4>You want to learn this:</h4>
-      <%# @volunteer.to_learn %>
-    </div> -->
-  <%# end %>
+      <%@volunteer.to_learn %>
+    </div>
+  <% end %>
 
   <br><br>
 <div class="disclaimer">
