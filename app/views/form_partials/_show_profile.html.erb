@@ -1,0 +1,95 @@
+<div class="dashboard">
+<p id="notice"><%= notice %></p>
+
+<h1><%= user.first_name %>
+<%= user.last_name %></h1>
+
+<p> Welcome to ConnectDem! Set up your profile, then set your availabilities, and find your perfect match!</p>
+
+<% if user.age != nil %>
+  <div class="field">
+    <h4> Your age:</h4>
+    <%= user.age %>
+  </div>
+<% end %>
+
+<% if user.hobbies.any? %>
+  <div class="field">
+    <h4>Your hobbies:</h4>
+    <% user.hobbies.each do |hobby| %>
+      <p><%= hobby.name %></p>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+<% if user.schoolings.any? %>
+  <div class="field">
+    <h4>Your schooling information:</h4>
+    <% user.schoolings.each do |schooling| %>
+      <p><%= schooling.name %></p>
+      <p><%= schooling.level %></p>
+      <p><%= schooling.specialization %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if user.languages.any? %>
+  <div class="field">
+    <h4>Your languages:</h4>
+    <% user.languages.each do |language| %>
+      <p><%= language.language %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if user.cultural_backgrounds.any? %>
+  <div class="field">
+    <h4>Your cultural background:</h4>
+    <% user.cultural_backgrounds.each do |cultural_background| %>
+      <p><%= cultural_background.background %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if user.work_experiences.any? %>
+  <div class="field">
+    <h4>Your industry:</h4>
+    <% user.work_experiences.each do |industry| %>
+      <p><%= industry.industry %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if user.availabilities.any? %>
+  <div class="field">
+    <h4>Your availabilities:</h4>
+    <% user.availabilities.each do |availability| %>
+      <p><%= availability.timeslot %></p>
+    <% end %>
+  </div>
+  <% end %>
+
+<% if user.class == Resident %>
+  <% if user.to_teach != nil && user.to_teach != "" %>
+    <div class="field">
+      <h4>You want to teach this:</h4>
+      <%= user.to_teach %>
+    </div>
+  <% end %>
+
+  <% if user.availabilities.any? %>
+    <div class="button" id="match-button"><%= link_to 'Match', get_matches_path %></div>
+  <% end %>
+<% else %>
+  <% if user.to_learn != nil && user.to_learn != "" %>
+    <div class="field">
+      <h4>You want to learn this:</h4>
+      <%= user.to_learn %>
+    </div>
+  <% end %>
+<% end %>
+
+</div>
+<br>
