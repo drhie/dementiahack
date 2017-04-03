@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305035601) do
+ActiveRecord::Schema.define(version: 20170403183525) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
     t.string   "email"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "age"
+    t.string   "age"
     t.boolean  "active"
     t.string   "neighborhood"
     t.string   "city"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
     t.string   "city"
     t.string   "password_digest"
     t.text     "to_learn"
+    t.string   "age"
   end
 
   create_table "work_experiences", force: :cascade do |t|

@@ -1,15 +1,18 @@
-<%= form_for(volunteer) do |f| %>
-  <% if volunteer.errors.any? %>
+<div class="container">
+
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(volunteer.errors.count, "error") %> prohibited this volunteer from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% volunteer.errors.full_messages.each do |message| %>
+      <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
@@ -32,6 +35,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create Account", :class => "button" %>
+    <%= f.submit :class => "button" %>
   </div>
 <% end %>
+
+</div>

@@ -1,6 +1,11 @@
 <div class="dashboard">
   <div class="form">
     <h1>Edit Login Info</h1>
-    <%= render 'form', resident: @resident %>
+
+    <%= render 'form_partials/form', user: @resident %>
+
+    <%= link_to 'Show', @resident %> |
+    <%= link_to 'Back', residents_path %>
+
   </div>
 </div>
