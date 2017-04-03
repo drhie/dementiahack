@@ -2,6 +2,10 @@ class Availability < ApplicationRecord
   belongs_to :resident, optional: true
   belongs_to :volunteer, optional: true
 
+  def self.setlist
+    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Breakfast', 'Lunch', 'Evening', 'Morning', 'Afternoon', 'Evening']
+  end
+
   def self.check_availabilities(user) #This checks on the volunteer's end
 
     matched_availabilities = []

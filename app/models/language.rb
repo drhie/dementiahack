@@ -2,6 +2,10 @@ class Language < ApplicationRecord
   belongs_to :resident, optional: true
   belongs_to :volunteer, optional: true
 
+  def self.setlist
+    set = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French', "Portugese", "Bengali", "Russian", "Swedish"]
+  end
+
   def self.match_languages(user)
     languages = []
     matched_people = []

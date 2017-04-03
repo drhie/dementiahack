@@ -2,6 +2,10 @@ class CulturalBackground < ApplicationRecord
   belongs_to :resident, optional: true
   belongs_to :volunteer, optional: true
 
+  def self.setlist
+    set = ['German', 'Indian', 'Korean', 'Chinese']
+  end
+
   def self.match_cultural_backgrounds(user)
     cultural_backgrounds = []
     matched_people = []

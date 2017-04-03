@@ -2,6 +2,10 @@ class Interaction < ApplicationRecord
   belongs_to :resident, optional: true
   belongs_to :volunteer, optional: true
 
+  def self.setlist
+    set = ["Individual", "Small Group", "Large Group"]
+  end
+  
   def self.match_interactions(user)
     interactions = []
     matched_people = []
