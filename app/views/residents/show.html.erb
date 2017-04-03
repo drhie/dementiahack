@@ -3,6 +3,14 @@
 
 <h1><%= @resident.first_name %>
 <%= @resident.last_name %></h1>
+
+<p> Welcome to ConnectDem! Set up your profile, then set your availabilities, and find your perfect match!</p>
+
+<h4> Your age:</h4>
+  <div class="field">
+    <%= @resident.age %>
+  </div>
+
 <% if @resident.hobbies.any? %>
   <div class="field">
     <h4>Your hobbies:</h4>
@@ -11,6 +19,8 @@
     <% end %>
   </div>
 <% end %>
+
+
 
 <% if @resident.schoolings.any? %>
   <div class="field">

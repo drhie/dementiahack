@@ -65,6 +65,7 @@ class VolunteersController < ApplicationController
     @industry = ["Retail", "Research", "Translation", "IT", "Accountant", "Charity and Voluntary Work", "Business Consulting", "Banking", "Computer Networking", "Broadcast Media", "Education", "Entertainment", "Farming", "Judiciary", "Insurance", "Graphic Design", "Hospitality", "Insurance", "Trade"]
     @cultural_background = ['German', 'Indian', 'Korean', 'Chinese']
     @availability = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Breakfast', 'Lunch', 'Evening', 'Morning', 'Afternoon', 'Evening']
+    @age_ranges = ['Under 18', '18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70+']
     @volunteer.hobbies.build
     @volunteer.languages.build
     @volunteer.cultural_backgrounds.build
@@ -80,7 +81,6 @@ class VolunteersController < ApplicationController
         format.html { redirect_to @volunteer }
         format.json { render :show, status: :ok, location: @volunteer }
       else
-        byebug
         format.html { render :edit }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }
       end
