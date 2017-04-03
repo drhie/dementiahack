@@ -6,7 +6,7 @@ class Volunteer < ApplicationRecord
   has_many :residents, through: :matches
   #FIELDS
   has_many :availabilities
-  has_many :hobbies, inverse_of: :volunteer
+  has_many :hobbies
   has_many :cultural_backgrounds
   has_many :languages
   has_many :skills

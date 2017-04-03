@@ -1,8 +1,8 @@
 class Resident < ApplicationRecord
   has_secure_password
 
-  has_many :matches
   belongs_to :organization, optional: true
+  has_many :matches
   has_many :volunteers, through: :matches
   #FIELDS
   has_many :availabilities
