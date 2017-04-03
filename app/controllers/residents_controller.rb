@@ -63,6 +63,7 @@ class ResidentsController < ApplicationController
     @industry = WorkExperience.setlist
     @cultural_background = CulturalBackground.setlist
     @availability = Availability.setlist
+    @age_ranges = ['Under 18', '18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70+']
     @resident.languages.build
     @resident.cultural_backgrounds.build
     @resident.interactions.build

@@ -6,6 +6,11 @@
 
   <p> Welcome to ConnectDem! Set up your profile, then set your availabilities, and find your perfect match!</p>
 
+  <h4> Your age:</h4>
+    <div class="field">
+      <%= @volunteer.age %>
+    </div>
+
   <% if @volunteer.hobbies.any? %>
     <div class="field">
       <h4>Your hobbies:</h4>
@@ -62,12 +67,12 @@
     </div>
   <% end %>
 
-  <%# if @volunteer.to_learn != "" %>
-    <!-- <div class="field">
+  <% if @volunteer.to_learn != "" %>
+    <div class="field">
       <h4>You want to learn this:</h4>
-      <%# @volunteer.to_learn %>
-    </div> -->
-  <%# end %>
+      <%@volunteer.to_learn %>
+    </div>
+  <% end %>
 
   <br><br>
 <div class="disclaimer">

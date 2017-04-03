@@ -3,6 +3,14 @@
 
 <h1><%= @resident.first_name %>
 <%= @resident.last_name %></h1>
+
+<p> Welcome to ConnectDem! Set up your profile, then set your availabilities, and find your perfect match!</p>
+
+<h4> Your age:</h4>
+  <div class="field">
+    <%= @resident.age %>
+  </div>
+
 <% if @resident.hobbies.any? %>
   <div class="field">
     <h4>Your hobbies:</h4>
@@ -11,6 +19,8 @@
     <% end %>
   </div>
 <% end %>
+
+
 
 <% if @resident.schoolings.any? %>
   <div class="field">
@@ -57,13 +67,23 @@
       <p><%= availability.timeslot %></p>
     <% end %>
   </div>
+  <% end %>
 
+  <% if @resident.to_teach != "" %>
+    <div class="field">
+      <h4>You want to teach this:</h4>
+      <%= @resident.to_teach %>
+    </div>
+  <% end %>
 
-<% end %>
   <% if @resident.availabilities.any? %>
     <div class="button" id="match-button"><%= link_to 'Match', get_matches_path %></div>
   <% end %>
 </div>
+
+
+
+
 
 <br>
 <%= link_to 'Edit', edit_resident_path(@resident) %> |
