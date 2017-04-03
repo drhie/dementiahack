@@ -2,10 +2,10 @@
 
 one:
   timeslot: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1
 
 two:
   timeslot: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1

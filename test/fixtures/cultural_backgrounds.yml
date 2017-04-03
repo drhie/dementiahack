@@ -3,9 +3,9 @@
 one:
   background: MyString
   volunteer_id: 1
-  pwd_id: 1
+  resident_id: 1
 
 two:
   background: MyString
   volunteer_id: 1
-  pwd_id: 1
+  resident_id: 1

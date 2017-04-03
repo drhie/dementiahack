@@ -1,9 +1,9 @@
 class Volunteer < ApplicationRecord
   has_secure_password
 
-  has_many :organizations, through: :pwds
+  has_many :organizations, through: :residents
   has_many :matches
-  has_many :pwds, through: :matches
+  has_many :residents, through: :matches
   #FIELDS
   has_many :availabilities
   has_many :hobbies, inverse_of: :volunteer

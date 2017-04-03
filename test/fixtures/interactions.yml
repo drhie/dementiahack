@@ -3,9 +3,9 @@
 one:
   type: 
   volunteer_id: 1
-  pwd_id: 1
+  resident_id: 1
 
 two:
   type: 
   volunteer_id: 1
-  pwd_id: 1
+  resident_id: 1

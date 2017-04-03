@@ -3,7 +3,7 @@ class CreateCulturalBackgrounds < ActiveRecord::Migration[5.0]
     create_table :cultural_backgrounds do |t|
       t.string :background
       t.integer :volunteer_id
-      t.integer :pwd_id
+      t.integer :resident_id
 
       t.timestamps
     end

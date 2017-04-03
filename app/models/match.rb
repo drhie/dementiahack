@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
   belongs_to :volunteer
-  belongs_to :pwd
+  belongs_to :resident
 
   def self.calculate_match(user)
     Match.destroy_all
@@ -25,9 +25,9 @@ class Match < ApplicationRecord
   end
 
   match_hash.each do |match|
-    Match.create(pwd_id: user.id, volunteer_id: match[0], match_score: match[1]) if Match.where(pwd_id: user.id, volunteer_id: match[0]).empty?
+    Match.create(resident_id: user.id, volunteer_id: match[0], match_score: match[1]) if Match.where(resident_id: user.id, volunteer_id: match[0]).empty?
   end
-  Match.all.where(pwd_id: user.id).order(match_score: :desc)
+  Match.all.where(resident_id: user.id).order(match_score: :desc)
 
   end
 end

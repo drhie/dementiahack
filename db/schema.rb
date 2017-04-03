@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.integer  "volunteer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20170305035601) do
   create_table "cultural_backgrounds", force: :cascade do |t|
     t.string   "background"
     t.integer  "volunteer_id"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "hobbies", force: :cascade do |t|
     t.string   "name"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.integer  "volunteer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "interactions", force: :cascade do |t|
     t.integer  "volunteer_id"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "interaction"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "language"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.integer  "volunteer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "volunteer_id"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "match_score"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
     t.string   "full_address"
   end
 
-  create_table "pwds", force: :cascade do |t|
+  create_table "residents", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "schoolings", force: :cascade do |t|
     t.string   "name"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.integer  "volunteer_id"
     t.string   "level"
     t.string   "specialization"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.integer  "volunteer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20170305035601) do
 
   create_table "work_experiences", force: :cascade do |t|
     t.string   "industry"
-    t.integer  "pwd_id"
+    t.integer  "resident_id"
     t.integer  "volunteer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

@@ -20,8 +20,8 @@
               <% if session[:type] == "Volunteer" %>
                 <%= link_to "ConnectDem", volunteer_path(session[:user_id]) %>
               <% end %>
-              <% if session[:type] == "Pwd" %>
-                <%= link_to "ConnectDem", pwd_path(session[:user_id]) %>
+              <% if session[:type] == "Resident" %>
+                <%= link_to "ConnectDem", resident_path(session[:user_id]) %>
               <% end %>
             <% else %>
               <%= link_to "ConnectDem", root_url %>
@@ -35,10 +35,10 @@
             <%= link_to 'Set Up Profile', new_profile_path %>
             <%= link_to 'Set Availability', new_availability_path %>
           <% end %>
-          <% if session[:type] == "Pwd" %>
-            <%= link_to 'Edit Login Info', edit_pwd_path(session[:user_id]) %>
-            <%= link_to 'Set Up Profile', new_pwd_profile_path %>
-            <%= link_to 'Set Availability', new_pwd_availability_path %>
+          <% if session[:type] == "Resident" %>
+            <%= link_to 'Edit Login Info', edit_resident_path(session[:user_id]) %>
+            <%= link_to 'Set Up Profile', new_resident_profile_path %>
+            <%= link_to 'Set Availability', new_resident_availability_path %>
           <% end %>
           <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
         </div>

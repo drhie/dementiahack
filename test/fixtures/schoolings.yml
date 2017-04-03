@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1
   level: MyString
   specialization: MyString
 
 two:
   name: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1
   level: MyString
   specialization: MyString

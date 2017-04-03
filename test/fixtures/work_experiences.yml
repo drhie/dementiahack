@@ -2,10 +2,10 @@
 
 one:
   industry: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1
 
 two:
   industry: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1

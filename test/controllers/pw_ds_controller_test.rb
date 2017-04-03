@@ -2,47 +2,47 @@ require 'test_helper'
 
 class PwDsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @pwd = pwds(:one)
+    @resident = residents(:one)
   end
 
   test "should get index" do
-    get pwds_url
+    get residents_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_pwd_url
+    get new_resident_url
     assert_response :success
   end
 
-  test "should create pwd" do
-    assert_difference('Pwd.count') do
-      post pwds_url, params: { pwd: {  } }
+  test "should create resident" do
+    assert_difference('Resident.count') do
+      post residents_url, params: { resident: {  } }
     end
 
-    assert_redirected_to pwd_url(Pwd.last)
+    assert_redirected_to resident_url(Resident.last)
   end
 
-  test "should show pwd" do
-    get pwd_url(@pwd)
+  test "should show resident" do
+    get resident_url(@resident)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_pwd_url(@pwd)
+    get edit_resident_url(@resident)
     assert_response :success
   end
 
-  test "should update pwd" do
-    patch pwd_url(@pwd), params: { pwd: {  } }
-    assert_redirected_to pwd_url(@pwd)
+  test "should update resident" do
+    patch resident_url(@resident), params: { resident: {  } }
+    assert_redirected_to resident_url(@resident)
   end
 
-  test "should destroy pwd" do
-    assert_difference('Pwd.count', -1) do
-      delete pwd_url(@pwd)
+  test "should destroy resident" do
+    assert_difference('Resident.count', -1) do
+      delete resident_url(@resident)
     end
 
-    assert_redirected_to pwds_url
+    assert_redirected_to residents_url
   end
 end

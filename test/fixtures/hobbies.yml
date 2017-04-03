@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1
 
 two:
   name: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1

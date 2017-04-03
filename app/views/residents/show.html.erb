@@ -1,21 +1,21 @@
 <div class="dashboard">
 <p id="notice"><%= notice %></p>
 
-<h1><%= @pwd.first_name %>
-<%= @pwd.last_name %></h1>
-<% if @pwd.hobbies.any? %>
+<h1><%= @resident.first_name %>
+<%= @resident.last_name %></h1>
+<% if @resident.hobbies.any? %>
   <div class="field">
     <h4>Your hobbies:</h4>
-    <% @pwd.hobbies.each do |hobby| %>
+    <% @resident.hobbies.each do |hobby| %>
       <p><%= hobby.name %></p>
     <% end %>
   </div>
 <% end %>
 
-<% if @pwd.schoolings.any? %>
+<% if @resident.schoolings.any? %>
   <div class="field">
     <h4>Your schooling information:</h4>
-    <% @pwd.schoolings.each do |schooling| %>
+    <% @resident.schoolings.each do |schooling| %>
       <p><%= schooling.name %></p>
       <p><%= schooling.level %></p>
       <p><%= schooling.specialization %></p>
@@ -23,51 +23,51 @@
   </div>
 <% end %>
 
-<% if @pwd.languages.any? %>
+<% if @resident.languages.any? %>
   <div class="field">
     <h4>Your languages:</h4>
-    <% @pwd.languages.each do |language| %>
+    <% @resident.languages.each do |language| %>
       <p><%= language.language %></p>
     <% end %>
   </div>
 <% end %>
 
-<% if @pwd.cultural_backgrounds.any? %>
+<% if @resident.cultural_backgrounds.any? %>
   <div class="field">
     <h4>Your cultural background:</h4>
-    <% @pwd.cultural_backgrounds.each do |cultural_background| %>
+    <% @resident.cultural_backgrounds.each do |cultural_background| %>
       <p><%= cultural_background.background %></p>
     <% end %>
   </div>
 <% end %>
 
-<% if @pwd.work_experiences.any? %>
+<% if @resident.work_experiences.any? %>
   <div class="field">
     <h4>Your industry:</h4>
-    <% @pwd.work_experiences.each do |industry| %>
+    <% @resident.work_experiences.each do |industry| %>
       <p><%= industry.industry %></p>
     <% end %>
   </div>
 <% end %>
 
-<% if @pwd.availabilities.any? %>
+<% if @resident.availabilities.any? %>
   <div class="field">
     <h4>Your availabilities:</h4>
-    <% @pwd.availabilities.each do |availability| %>
+    <% @resident.availabilities.each do |availability| %>
       <p><%= availability.timeslot %></p>
     <% end %>
   </div>
 
 
 <% end %>
-  <% if @pwd.availabilities.any? %>
+  <% if @resident.availabilities.any? %>
     <div class="button" id="match-button"><%= link_to 'Match', get_matches_path %></div>
   <% end %>
 </div>
 
 <br>
-<%= link_to 'Edit', edit_pwd_path(@pwd) %> |
-<%= link_to 'Back', pwds_path %> |
-<%= link_to 'Set Up Profile', new_pwd_profile_path %> |
-<%= link_to 'Set Availability', new_pwd_availability_path %> |
+<%= link_to 'Edit', edit_resident_path(@resident) %> |
+<%= link_to 'Back', residents_path %> |
+<%= link_to 'Set Up Profile', new_resident_profile_path %> |
+<%= link_to 'Set Availability', new_resident_availability_path %> |
 <%= link_to 'Log Out', session_path('vanilla mint'), method: :delete %> |

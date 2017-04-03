@@ -1,5 +1,5 @@
 class Availability < ApplicationRecord
-  belongs_to :pwd, optional: true
+  belongs_to :resident, optional: true
   belongs_to :volunteer, optional: true
 
   def self.check_availabilities(user) #This checks on the volunteer's end
@@ -13,10 +13,10 @@ class Availability < ApplicationRecord
     user.availabilities.each do |user_availability|
       Availability.all.each do |availability|
         matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
+        matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.resident_id == nil if user.class.name == "Resident"
 
-        matched_people << Pwd.find(availability.pwd_id) if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(availability.volunteer_id) if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
+        matched_people << Resident.find(availability.resident_id) if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
+        matched_people << Volunteer.find(availability.volunteer_id) if user_availability.timeslot == availability.timeslot && availability.resident_id == nil if user.class.name == "Resident"
           end
         end
 
@@ -24,7 +24,7 @@ class Availability < ApplicationRecord
 
 
         Availability.all.each do |availability|
-          non_matched_availabilities << availability.id if availability.pwd_id != user.id if user.class.name == "Pwd"
+          non_matched_availabilities << availability.id if availability.resident_id != user.id if user.class.name == "Resident"
         end
 
         final_non_matched_availabilities = non_matched_availabilities
@@ -46,7 +46,7 @@ class Availability < ApplicationRecord
     matched_people.each do |person|
       matched_counter = 0
       matched_availabilities.each do |availability|
-        matched_counter += 1 if availability.volunteer_id == person.id || availability.pwd_id == person.id
+        matched_counter += 1 if availability.volunteer_id == person.id || availability.resident_id == person.id
       end
       ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
     end
@@ -63,10 +63,10 @@ class Availability < ApplicationRecord
     user.availabilities.each do |user_availability|
       Availability.all.each do |availability|
         matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
+        matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.resident_id == nil if user.class.name == "Resident"
 
-        matched_people << Pwd.find(availability.pwd_id) if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(availability.volunteer_id) if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
+        matched_people << Resident.find(availability.resident_id) if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
+        matched_people << Volunteer.find(availability.volunteer_id) if user_availability.timeslot == availability.timeslot && availability.resident_id == nil if user.class.name == "Resident"
           end
         end
     matched_availabilities
@@ -83,10 +83,10 @@ class Availability < ApplicationRecord
     user.availabilities.each do |user_availability|
       Availability.all.each do |availability|
         matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
+        matched_availabilities << availability if user_availability.timeslot == availability.timeslot && availability.resident_id == nil if user.class.name == "Resident"
 
-        matched_people << Pwd.find(availability.pwd_id) if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(availability.volunteer_id) if user_availability.timeslot == availability.timeslot && availability.pwd_id == nil if user.class.name == "Pwd"
+        matched_people << Resident.find(availability.resident_id) if user_availability.timeslot == availability.timeslot && availability.volunteer_id == nil if user.class.name == "Volunteer"
+        matched_people << Volunteer.find(availability.volunteer_id) if user_availability.timeslot == availability.timeslot && availability.resident_id == nil if user.class.name == "Resident"
           end
         end
 
@@ -94,7 +94,7 @@ class Availability < ApplicationRecord
 
 
         Availability.all.each do |availability|
-          non_matched_availabilities << availability.id if availability.pwd_id != user.id if user.class.name == "Pwd"
+          non_matched_availabilities << availability.id if availability.resident_id != user.id if user.class.name == "Resident"
         end
 
         final_non_matched_availabilities = non_matched_availabilities

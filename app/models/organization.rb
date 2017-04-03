@@ -1,5 +1,5 @@
 class Organization < ApplicationRecord
-  has_many :pwds
-  has_many :matches, through: :pwds
-  has_many :volunteers, through: :pwds
+  has_many :residents
+  has_many :matches, through: :residents
+  has_many :volunteers, through: :residents
 end

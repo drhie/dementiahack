@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PwdTest < ActiveSupport::TestCase
+class ResidentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

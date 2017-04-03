@@ -2,10 +2,10 @@
 
 one:
   language: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1
 
 two:
   language: MyString
-  pwd_id: 1
+  resident_id: 1
   volunteer_id: 1

@@ -62,14 +62,14 @@ class MatchesController < ApplicationController
   end
 
   def get_matches
-    @user = Pwd.find(session[:user_id])
+    @user = Resident.find(session[:user_id])
     @matches = Match.calculate_match(@user)
     @matched_people_matched_availabilities = Availability.matched_people_matched_availabilities(@user)
     @matched_people_non_matched_availabilities = Availability.matched_people_non_matched_availabilities(@user)
   end
 
   def show_match
-    @pwd = Pwd.find(session[:user_id])
+    @resident = Resident.find(session[:user_id])
     @volunteer = Match.find(params[:id]).volunteer
   end
 

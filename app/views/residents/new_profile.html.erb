@@ -1,7 +1,7 @@
 <div class="dashboard">
   <div class="form">
-    <%= form_for @pwd, url: create_pwd_profile_path, method: :post do |f| %>
-      <h1>Hi <%= @pwd.first_name %> <%= @pwd.last_name %>! Create your profile!</h1>
+    <%= form_for @resident, url: create_resident_profile_path, method: :post do |f| %>
+      <h1>Hi <%= @resident.first_name %> <%= @resident.last_name %>! Create your profile!</h1>
 
       <%= f.fields_for :hobbies do |r| %>
         <div class="field">

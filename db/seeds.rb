@@ -22,7 +22,7 @@ Interaction.destroy_all
 Language.destroy_all
 Match.destroy_all
 Organization.destroy_all
-Pwd.destroy_all
+Resident.destroy_all
 Schooling.destroy_all
 Volunteer.destroy_all
 WorkExperience.destroy_all
@@ -134,7 +134,7 @@ end
 #   phone_number: "556-5555",
 # )
 #
-# Pwd.create(
+# Resident.create(
 #   first_name: "Rich",
 #   last_name:   "Strauss",
 #   email:      "rich@rich.com",
@@ -146,15 +146,15 @@ end
 #
 # Hobby.create(
 #   name: "Cards",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 #
 # Hobby.create(
 #   name: "Ping Pong",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 #
-# Pwd.create(
+# Resident.create(
 #   first_name: "Stephen",
 #   last_name:   "Huang",
 #   email:      "stephenh@rich.com",
@@ -166,22 +166,22 @@ end
 #
 # Hobby.create(
 #   name: "Cards",
-#   pwd_id: 2
+#   resident_id: 2
 # )
 #
 # Hobby.create(
 #   name: "Ping Pong",
-#   pwd_id: 2
+#   resident_id: 2
 # )
 #
 # Hobby.create(
 #   name: "Squash",
-#   pwd_id: 2
+#   resident_id: 2
 # )
 #
 # Hobby.create(
 #   name: "Soccer",
-#   pwd_id: 2
+#   resident_id: 2
 # )
 #
 # Skill.create(
@@ -196,12 +196,12 @@ end
 #
 # Skill.create(
 # name: "time management",
-# pwd_id: 1
+# resident_id: 1
 # )
 #
 # Skill.create(
 # name: "organization",
-# pwd_id: 1
+# resident_id: 1
 # )
 #
 # Schooling.create(
@@ -214,11 +214,11 @@ end
 # )
 # Schooling.create(
 #   specialization: "Commerce",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 # Schooling.create(
 #   specialization: "Genetics",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 #
 #
@@ -233,21 +233,21 @@ end
 # )
 # WorkExperience.create(
 #   industry: "Retail",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 # WorkExperience.create(
 #   industry: "Research",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 #
 # # Match.create(
 # #   volunteer_id: 1,
-# #   pwd_id:       1
+# #   resident_id:       1
 # # )
 # #
 # # Match.create(
 # #   volunteer_id: 2,
-# #   pwd_id:       2
+# #   resident_id:       2
 # # )
 #
 # Availability.create(
@@ -262,10 +262,10 @@ end
 #
 # Availability.create(
 #   timeslot: "Wednesday",
-#   pwd_id: 1
+#   resident_id: 1
 # )
 #
 # Availability.create(
 #   timeslot: "Monday",
-#   pwd_id: 1
+#   resident_id: 1
 # )

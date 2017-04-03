@@ -1,4 +1,4 @@
-class Pwd < ApplicationRecord
+class Resident < ApplicationRecord
   has_secure_password
 
   has_many :matches

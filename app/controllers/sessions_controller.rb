@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def index
-    @user = Pwd.find(session[:user_id]) if session[:type] == "Pwd"
+    @user = Resident.find(session[:user_id]) if session[:type] == "Resident"
     @user = Volunteer.find(session[:user_id]) if session[:type] == "Volunter"
   end
 
@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = Pwd.find_by(email: params[:email]) || Volunteer.find_by(email: params[:email])
+    user = Resident.find_by(email: params[:email]) || Volunteer.find_by(email: params[:email])
     if user
       session[:user_id] = user.id
       session[:type] = user.class.name
       session[:user] = user
       flash[:notice] = "Logged in!"
       redirect_to volunteer_path(user.id) if session[:type] == "Volunteer"
-      redirect_to pwd_path(user.id) if session[:type] == "Pwd"
+      redirect_to resident_path(user.id) if session[:type] == "Resident"
     else
       flash.now[:alert] = "Login failed."
       render :new
