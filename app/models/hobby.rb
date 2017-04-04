@@ -9,26 +9,26 @@ class Hobby < ApplicationRecord
   def self.match_hobbies(user)
     hobbies = []
     matched_people = []
-    ranked_matched_people = []
-    user.hobbies.each do |user_hobby|
-      Hobby.all.each do |hobby|
-        hobbies << hobby if user_hobby.name == hobby.name && hobby.volunteer_id == nil if user.class.name == "Volunteer"
-        hobbies << hobby if user_hobby.name == hobby.name && hobby.resident_id == nil if user.class.name == "Resident"
-        matched_people << Resident.find(hobby.resident_id) if user_hobby.name == hobby.name && hobby.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(hobby.volunteer_id) if user_hobby.name == hobby.name && hobby.resident_id == nil if user.class.name == "Resident"
+    if user.class.name == "Volunteer"
+      user.hobbies.each do |user_hobby|
+        Hobby.all.each do |hobby|
+          if user_hobby.name == hobby.name && hobby.resident_id != nil
+            hobbies << hobby
+            matched_people << Resident.find(hobby.resident_id)
+          end
+        end
+      end
+    elsif user.class.name == "Resident"
+      user.hobbies.each do |user_hobby|
+        Hobby.all.each do |hobby|
+          if user_hobby.name == hobby.name && hobby.volunteer_id != nil
+            hobbies << hobby
+            matched_people << Volunteer.find(hobby.volunteer_id)
+          end
+        end
       end
     end
 
-    matched_people.each do |person|
-      matched_counter = 0
-      hobbies.each do |hobby|
-        matched_counter += 1 if hobby.volunteer_id == person.id || hobby.resident_id == person.id
-      end
-      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
-    end
-    ranked_matched_people
+    Match.match_people(hobbies, matched_people)
   end
-
-
-
 end

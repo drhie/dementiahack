@@ -19,14 +19,6 @@ class WorkExperience < ApplicationRecord
       end
     end
 
-    matched_people.each do |person|
-      matched_counter = 0
-      work_exp.each do |work_ex|
-        matched_counter += 1 if work_ex.volunteer_id == person.id || work_ex.resident_id == person.id
-      end
-      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
-    end
-    ranked_matched_people
+    Match.match_people(work_exp, matched_people)
   end
-
 end

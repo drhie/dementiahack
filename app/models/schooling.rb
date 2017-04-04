@@ -27,14 +27,7 @@ class Schooling < ApplicationRecord
       end
     end
 
-    matched_people.each do |person|
-      matched_counter = 0
-      schoolings.each do |schooling|
-        matched_counter += 1 if schooling.volunteer_id == person.id || schooling.resident_id == person.id
-      end
-      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
-    end
-    ranked_matched_people
+    Match.match_people(schoolings, matched_people)
   end
 
 end

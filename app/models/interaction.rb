@@ -5,7 +5,7 @@ class Interaction < ApplicationRecord
   def self.setlist
     set = ["Individual", "Small Group", "Large Group"]
   end
-  
+
   def self.match_interactions(user)
     interactions = []
     matched_people = []
@@ -19,16 +19,7 @@ class Interaction < ApplicationRecord
       end
     end
 
-    matched_people.each do |person|
-      matched_counter = 0
-      interactions.each do |element|
-        matched_counter += 1 if element.volunteer_id == person.id || element.resident_id == person.id
-      end
-      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
-    end
-    ranked_matched_people
+    Match.match_people(interactions, matched_people)
   end
-
-
 
 end

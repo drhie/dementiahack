@@ -59,13 +59,17 @@ class VolunteersController < ApplicationController
     @cultural_background = CulturalBackground.setlist
     @availability = Availability.setlist
     @age_ranges = ['Under 18', '18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70+']
-    @volunteer.hobbies.build
-    @volunteer.languages.build
-    @volunteer.cultural_backgrounds.build
-    @volunteer.interactions.build
-    @volunteer.schoolings.build
-    @volunteer.skills.build
-    @volunteer.work_experiences.build
+
+    @volunteer.hobbies.build if !@volunteer.hobbies.any?
+    @volunteer.languages.build if !@volunteer.languages.any?
+    @volunteer.cultural_backgrounds.build if !@volunteer.cultural_backgrounds.any?
+    @volunteer.interactions.build if !@volunteer.interactions.any?
+    @volunteer.schoolings.build if !@volunteer.schoolings.any?
+    @volunteer.skills.build if !@volunteer.skills.any?
+    @volunteer.work_experiences.build if !@volunteer.work_experiences.any?
+  end
+
+  def edit_profile
   end
 
   def create_profile

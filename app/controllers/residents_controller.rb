@@ -58,21 +58,22 @@ class ResidentsController < ApplicationController
     @cultural_background = CulturalBackground.setlist
     @availability = Availability.setlist
     @age_ranges = ['Under 18', '18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70+']
-    @resident.languages.build
-    @resident.cultural_backgrounds.build
-    @resident.interactions.build
-    @resident.schoolings.build
-    @resident.skills.build
-    @resident.work_experiences.build
+
+    @resident.hobbies.build if !@resident.hobbies.any?
+    @resident.languages.build if !@resident.languages.any?
+    @resident.cultural_backgrounds.build if !@resident.cultural_backgrounds.any?
+    @resident.interactions.build if !@resident.interactions.any?
+    @resident.schoolings.build if !@resident.schoolings.any?
+    @resident.skills.build if !@resident.skills.any?
+    @resident.work_experiences.build if !@resident.work_experiences.any?
   end
 
   def create_profile
     respond_to do |format|
       if @resident.update(resident_params)
-        format.html { redirect_to @resident, notice: 'Volunteer was successfully updated.' }
+        format.html { redirect_to @resident, notice: 'Resident was successfully updated.' }
         format.json { render :show, status: :ok, location: @resident }
       else
-        byebug
         format.html { render :edit }
         format.json { render json: @resident.errors, status: :unprocessable_entity }
       end

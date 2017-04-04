@@ -15,9 +15,22 @@ $paragraph-font: "Questrial";
 
 .nav-bar {
   height: 70px;
-  background-color: $primary-color;
+  
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%,
+}
   // line-height: 110px;
 }
+
+.nav-bar.active {
+  background: white;
+  position: fixed;
+  left: 0;
+  right: 0; 
+}
+
 
 .link-bar {
   text-align: center;
@@ -44,8 +57,8 @@ $paragraph-font: "Questrial";
 h1.title {
   font-family: $heading-font;
   font-size: 3em;
+
   color: black;
-  background-color: $primary-color;
   display: inline-block;
   a {
     text-decoration: none;
@@ -88,7 +101,7 @@ footer {
   text-align: center;
   display: inline-block;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 155px;
 
   p {
     font-size: 1.6em;
@@ -193,11 +206,12 @@ p, a {
   display: inline-block;
   width: 100%;
 }
-// #brain {
-//   height: 3rem;
-//   vertical-align: top;
-//   padding-top: 3%;
-// }
+
+#brain {
+  height: 42px;
+  vertical-align: top;
+  margin-top: 26px;
+}
 
 // --------------------------------------------------------------------------------
 

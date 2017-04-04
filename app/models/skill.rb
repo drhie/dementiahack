@@ -15,14 +15,7 @@ class Skill < ApplicationRecord
       end
     end
 
-    matched_people.each do |person|
-      matched_counter = 0
-      skills.each do |skill|
-        matched_counter += 1 if skill.volunteer_id == person.id || skill.resident_id == person.id
-      end
-      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
-    end
-    ranked_matched_people
+    Match.match_people(skills, matched_people)
   end
 
 end

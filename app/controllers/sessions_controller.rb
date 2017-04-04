@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def index
+
     render :layout => "homepage"
+
     @user = Resident.find(session[:user_id]) if session[:type] == "Resident"
     @user = Volunteer.find(session[:user_id]) if session[:type] == "Volunter"
   end
