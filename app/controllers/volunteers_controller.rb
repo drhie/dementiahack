@@ -68,6 +68,9 @@ class VolunteersController < ApplicationController
     @volunteer.work_experiences.build
   end
 
+  def edit_profile
+  end
+
   def create_profile
     respond_to do |format|
       if @volunteer.update(volunteer_params)

@@ -17,11 +17,9 @@
 <% end %>
 
 <%= f.fields_for :languages do |r| %>
-  <div class="field">
-    <%= r.label :language %>
-    <%= r.select :language, (@language),  include_blank: true %>
-  </div>
+  <%= render 'form_partials/language_fields', f: r %>
 <% end %>
+<%= link_to_add_association 'add language', f, :languages, partial: 'form_partials/language_fields' %>
 
 <%= f.fields_for :cultural_backgrounds do |r| %>
 <div class="field">

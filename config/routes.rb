@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   post '/create_availability' => 'volunteers#create_availability', as: :create_availability
 
 
-
   get '/new_resident_profile' => 'residents#new_profile', as: :new_resident_profile
   post '/create_resident_profile' => 'residents#create_profile', as: :create_resident_profile
   get '/new_resident_availability' => 'residents#new_availability', as: :new_resident_availability
