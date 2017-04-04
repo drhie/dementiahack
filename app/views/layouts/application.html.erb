@@ -27,26 +27,26 @@
               <%= link_to "ConnectDem", root_url %>
             <% end %>
         </h1>
-      </div>
-      <% if session[:user_id]  %>
+        <% if session[:user_id]  %>
         <div class="link-bar">
           <% if session[:type] == "Volunteer" %>
-            <%= link_to 'Edit Login Info', edit_volunteer_path(session[:user_id]) %>
-            <%= link_to 'Set Up Profile', new_profile_path %>
-            <%= link_to 'Set Availability', new_availability_path %>
+          <%= link_to 'Edit Login Info', edit_volunteer_path(session[:user_id]) %>
+          <%= link_to 'Set Up Profile', new_profile_path %>
+          <%= link_to 'Set Availability', new_availability_path %>
           <% end %>
           <% if session[:type] == "Resident" %>
-            <%= link_to 'Edit Login Info', edit_resident_path(session[:user_id]) %>
-            <%= link_to 'Set Up Profile', new_resident_profile_path %>
-            <%= link_to 'Set Availability', new_resident_availability_path %>
+          <%= link_to 'Edit Login Info', edit_resident_path(session[:user_id]) %>
+          <%= link_to 'Set Up Profile', new_resident_profile_path %>
+          <%= link_to 'Set Availability', new_resident_availability_path %>
           <% end %>
           <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
         </div>
-      <% else %>
+        <% else %>
         <div class="login-bar">
           <p>Have an account already?</p><%= link_to "Log in", new_session_path %>
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
 
     <div class="shell">
