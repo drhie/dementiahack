@@ -9,18 +9,16 @@
       <div class="field">
         <%= label_tag :email %>
         <%= text_field_tag :email %>
-        <!-- <input type="text" placeholder="Email"> -->
       </div>
       <div class="field">
         <%= label_tag :password %>
         <%= password_field_tag :password %>
-        <!-- <input type="password" placeholder="Password"> -->
-      </div>
-      <div class="button">
-        <%= submit_tag "Log In" %>
-        <!-- <button class="btn waves-effect blue lighten-1" type="submit" name="action">Sign In</button> -->
+
       </div>
 
+      <%= submit_tag do %>
+        <div class="button"> Log in </div>
+      <% end %>
       <% end %>
     </div>
   </div>
