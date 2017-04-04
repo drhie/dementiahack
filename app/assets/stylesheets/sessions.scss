@@ -4,15 +4,17 @@ $tertiary-color: #FC4A1A;
 $heading-font: "Questrial";
 $paragraph-font: "Questrial";
 
-body {
-  background: $secondary-color;
-  position: relative;
-  margin: 0;
-  min-height: 100%,
+.homepage {
+  background-image: url('/assets/oldguy.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  background-color: #464646;
 }
 
 .nav-bar {
-  height: 120px;
+  height: 70px;
   background-color: $primary-color;
   // line-height: 110px;
 }
@@ -41,13 +43,14 @@ body {
 
 h1.title {
   font-family: $heading-font;
-  font-size: 5em;
+  font-size: 3em;
   color: black;
   background-color: $primary-color;
   display: inline-block;
   a {
     text-decoration: none;
     color: black;
+    line-height: 50%;
   }
 }
 
@@ -76,7 +79,6 @@ footer {
   width: 100%;
   text-align: center;
   background-color: $primary-color;
-  padding: 20px;
   position: absolute;
   bottom: -80px;
 }
@@ -118,6 +120,12 @@ footer {
   border-radius: 12px;
   margin: 15px 0;
   background-color: $primary-color;
+}
+
+p, a {
+  float: right;
+  padding-top: 2%;
+  padding-right: 1%;
 }
 
 .login-bar {
@@ -181,13 +189,15 @@ footer {
 }
 
 .logo {
+  padding-left: 1%;
   display: inline-block;
-  text-align: center;
   width: 100%;
 }
-#brain {
-  height: 65px;
-}
+// #brain {
+//   height: 3rem;
+//   vertical-align: top;
+//   padding-top: 3%;
+// }
 
 // --------------------------------------------------------------------------------
 
