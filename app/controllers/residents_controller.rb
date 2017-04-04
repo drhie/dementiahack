@@ -112,7 +112,7 @@ class ResidentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resident_params
-      params.require(:resident).permit(:first_name, :last_name, :email, :to_teach, :age, :active, :neighborhood, :city, :password, :password_confirmation,
+      params.require(:resident).permit(:first_name, :last_name, :email, :to_teach, :age, :active, :neighborhood, :city, :location, :password, :password_confirmation,
       hobbies_attributes: [ :id, :name, :_destroy ],
       languages_attributes: [ :id, :language, :_destroy ],
       cultural_backgrounds_attributes: [ :id, :background, :_destroy],

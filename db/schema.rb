@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403183525) do
+ActiveRecord::Schema.define(version: 20170404162834) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "timeslot"
@@ -82,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170403183525) do
     t.string   "password_digest"
     t.integer  "organization_id", default: 1
     t.text     "to_teach"
+    t.string   "location"
   end
 
   create_table "schoolings", force: :cascade do |t|
@@ -113,6 +117,7 @@ ActiveRecord::Schema.define(version: 20170403183525) do
     t.string   "password_digest"
     t.text     "to_learn"
     t.string   "age"
+    t.string   "location"
   end
 
   create_table "work_experiences", force: :cascade do |t|
