@@ -3,6 +3,12 @@
   <%= f.select :age, (@age_ranges), include_blank: true %>
 </div>
 
+<div class="field">
+  <%= f.label 'Location' %>
+  <%= f.text_area :location %>
+</div>
+
+
 <%= f.fields_for :hobbies do |r| %>
   <div class="field">
     <%= r.label :hobbies %>

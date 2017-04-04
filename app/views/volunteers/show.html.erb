@@ -1,98 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<div class="dashboard">
-  <h1>Hi <%= @volunteer.first_name %>
-  <%= @volunteer.last_name %>!</h1>
-
-  <p> Welcome to ConnectDem! Set up your profile, then set your availabilities, and find your perfect match!</p>
-
-  <% if @volunteer.age != "" && @volunteer.age != nil%>
-  <h4> Your age:</h4>
-    <div class="field">
-      <%= @volunteer.age %>
-    </div>
-    <% end %>
-
-  <% if @volunteer.hobbies.any? %>
-    <div class="field">
-      <h4>Your hobbies:</h4>
-      <% @volunteer.hobbies.each do |hobby| %>
-        <p><%= hobby.name %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if @volunteer.schoolings.any? %>
-    <div class="field">
-      <h4>Your schooling information:</h4>
-      <% @volunteer.schoolings.each do |schooling| %>
-        <p><%= schooling.name %></p>
-        <p><%= schooling.level %></p>
-        <p><%= schooling.specialization %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if @volunteer.languages.any? %>
-    <div class="field">
-      <h4>Your languages:</h4>
-      <% @volunteer.languages.each do |language| %>
-        <p><%= language.language %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if @volunteer.cultural_backgrounds.any? %>
-    <div class="field">
-      <h4>Your cultural background:</h4>
-      <% @volunteer.cultural_backgrounds.each do |cultural_background| %>
-        <p><%= cultural_background.background %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if @volunteer.work_experiences.any? %>
-    <div class="field">
-      <h4>Your industry:</h4>
-      <% @volunteer.work_experiences.each do |industry| %>
-        <p><%= industry.industry %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if @volunteer.location != "" && @volunteer.location != nil %>
-  <h4> Your location:</h4>
-    <div class="field">
-      <%= @volunteer.location %>
-    </div>
-    <% end %>
-
-  <% if @volunteer.availabilities.any? %>
-    <div class="field">
-      <h4>Your availabilities:</h4>
-      <% @volunteer.availabilities.each do |availability| %>
-        <p><%= availability.timeslot %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if @volunteer.to_learn != "" && @volunteer.to_learn != nil %>
-    <div class="field">
-      <h4>You want to learn this:</h4>
-      <%@volunteer.to_learn %>
-    </div>
-  <% end %>
-
 <%= render "form_partials/show_profile", user: @volunteer %>
 
-  <br><br>
+<br><br>
 <div class="disclaimer">
   <h3> Volunteer application and screening process</h3><br>
-<ol>
-  <li>After a review of your profile, you will receive an invitation to attend a Volunteer Orientation Session.</li>
-  <li>Participate in an interview at a mutually agreed upon time. The interview will determine whether the applicant is suitable for a volunteer position that is presently available. Please note: An interview does not guarantee a volunteer position.</li>
-  <li>Apply for a police check including a vulnerable sector check. All volunteers are required to obtain a successful police check prior to volunteering.</li>
-  <li>The successful volunteer will receive training for their new position as well as a detailed Volunteer description of their new role.
-</ol>
-</div>
+  <ol>
+    <li>After a review of your profile, you will receive an invitation to attend a Volunteer Orientation Session.</li>
+    <li>Participate in an interview at a mutually agreed upon time. The interview will determine whether the applicant is suitable for a volunteer position that is presently available. Please note: An interview does not guarantee a volunteer position.</li>
+    <li>Apply for a police check including a vulnerable sector check. All volunteers are required to obtain a successful police check prior to volunteering.</li>
+    <li>The successful volunteer will receive training for their new position as well as a detailed Volunteer description of their new role.
+  </ol>
 </div>

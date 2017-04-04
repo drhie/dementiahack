@@ -3,12 +3,6 @@
     <%= form_for @resident, url: create_resident_profile_path, method: :post do |f| %>
       <h1>Hi <%= @resident.first_name %> <%= @resident.last_name %>! Create your profile!</h1>
 
-      <%= f.label 'Enter your age' %>
-      <%= f.select :age, (@age_ranges), include_blank: true %>
-      <br>
-      <%= f.label 'Location' %>
-      <%= f.text_area :location %>
-
       <%= render 'form_partials/new_profile', f: f %>
 
       <%= f.label "What would you like to teach?"  %>
