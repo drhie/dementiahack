@@ -5,6 +5,9 @@
 
       <%= f.label 'Enter your age' %>
       <%= f.select :age, (@age_ranges), include_blank: true %>
+      <br>
+      <%= f.label 'Location' %>
+      <%= f.text_area :location %>
 
       <%= render 'form_partials/new_profile', f: f %>
 
