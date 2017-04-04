@@ -7,18 +7,7 @@ class WorkExperience < ApplicationRecord
   end
 
   def self.match_work_ex(user)
-    work_exp = []
-    matched_people = []
-    ranked_matched_people = []
-    user.work_experiences.each do |user_work_ex|
-      WorkExperience.all.each do |work_ex|
-        work_exp << work_ex if user_work_ex.industry == work_ex.industry && work_ex.volunteer_id == nil if user.class.name == "Volunteer"
-        work_exp << work_ex if user_work_ex.industry == work_ex.industry && work_ex.resident_id == nil if user.class.name == "Resident"
-        matched_people << Resident.find(work_ex.resident_id) if user_work_ex.industry == work_ex.industry && work_ex.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(work_ex.volunteer_id) if user_work_ex.industry == work_ex.industry && work_ex.resident_id == nil if user.class.name == "Resident"
-      end
-    end
-
-    Match.match_people(work_exp, matched_people)
+    match_results = Match.match_criteria(WorkExperience, user, user.work_experiences)
+    Match.match_people(match_results[0], match_results[1])
   end
 end

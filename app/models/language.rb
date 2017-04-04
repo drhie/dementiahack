@@ -7,19 +7,8 @@ class Language < ApplicationRecord
   end
 
   def self.match_languages(user)
-    languages = []
-    matched_people = []
-    ranked_matched_people = []
-    user.languages.each do |user_lang|
-      Language.all.each do |lang|
-        languages << lang if user_lang.language == lang.language && lang.volunteer_id == nil if user.class.name == "Volunteer"
-        languages << lang if user_lang.language == lang.language && lang.resident_id == nil if user.class.name == "Resident"
-        matched_people << Resident.find(lang.resident_id) if user_lang.language == lang.language && lang.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(lang.volunteer_id) if user_lang.language == lang.language && lang.resident_id == nil if user.class.name == "Resident"
-      end
-    end
-
-    Match.match_people(languages, matched_people)
+    match_results = Match.match_criteria(Language, user, user.languages)
+    Match.match_people(match_results[0], match_results[1])
   end
 
 
