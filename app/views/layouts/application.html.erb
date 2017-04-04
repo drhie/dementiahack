@@ -14,7 +14,7 @@
   <body>
     <div class="nav-bar">
       <div class="logo">
-        <%= image_tag(("brain.png"), id: "brain") %>
+        <!-- <%= image_tag(("brain.png"), id: "brain") %> -->
         <h1 class="title">
             <% if session[:user_id] %>
               <% if session[:type] == "Volunteer" %>
@@ -27,7 +27,10 @@
               <%= link_to "ConnectDem", root_url %>
             <% end %>
         </h1>
-        <% if session[:user_id]  %>
+        <%= link_to "Log in", new_session_path %><p>Have an account already?</p>
+      </div>
+      <% if session[:user_id]  %>
+
         <div class="link-bar">
           <% if session[:type] == "Volunteer" %>
           <%= link_to 'Edit Login Info', edit_volunteer_path(session[:user_id]) %>
@@ -41,12 +44,7 @@
           <% end %>
           <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
         </div>
-        <% else %>
-        <div class="login-bar">
-          <p>Have an account already?</p><%= link_to "Log in", new_session_path %>
-        </div>
-        <% end %>
-      </div>
+
     </div>
 
     <div class="shell">
@@ -56,7 +54,7 @@
       <%= yield %>
     </div>
     <footer>
-      <p class="footer">© 2017 ConnectDem , David R. Stephen H. Richard S. Akshit S.</p>
+      <p class="footer">© 2017 ConnectDem , David R. Stephen H. Richard S. Akshit S. Justin C.</p>
     </footer>
   </body>
 </html>

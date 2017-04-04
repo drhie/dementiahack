@@ -12,7 +12,6 @@
   </head>
 
   <body class="homepage">
-
     <div class="nav-bar">
       <div class="logo">
         <%= image_tag(("brain.png"), id: "brain") %>
@@ -28,6 +27,7 @@
               <%= link_to "ConnectDem", root_url %>
             <% end %>
         </h1>
+
         <% if session[:user_id]  %>
         <div class="link-bar">
           <% if session[:type] == "Volunteer" %>
@@ -53,7 +53,8 @@
       <%= yield %>
     </div>
     <footer>
-      <p class="footer">© 2017 ConnectDem , David R. Stephen H. Richard S. Akshit S.</p>
+      <p class="footer">© 2017 ConnectDem , David R. Stephen H. Richard S. Akshit S. Justin C.</p>
+
     </footer>
   </body>
 </html>
