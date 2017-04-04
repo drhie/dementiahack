@@ -12,6 +12,16 @@
   padding: 0;
 }
 
+.overlay {
+  background: black; 
+}
+
+.homepage {
+  background-image: url('/assets/bench.jpeg');
+  background-position: center center;
+  background-size: cover;
+}
+
 html {
   font-family: "Nunito";
   position: relative;
