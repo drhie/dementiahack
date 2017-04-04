@@ -1,5 +1,4 @@
-<div class="dashboard">
-<p id="notice"><%= notice %></p>
+<%= render '/form_partials/show_profile', user: @resident %>
 
 <h1><%= @resident.first_name %>
 <%= @resident.last_name %></h1>
@@ -99,4 +98,4 @@
 <%= link_to 'Back', residents_path %> |
 <%= link_to 'Set Up Profile', new_resident_profile_path %> |
 <%= link_to 'Set Availability', new_resident_availability_path %> |
-<%= link_to 'Log Out', session_path('vanilla mint'), method: :delete %> |
+<%= link_to 'Log Out', session_path('vanilla mint'), method: :delete %>
