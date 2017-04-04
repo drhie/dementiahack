@@ -19,14 +19,7 @@ class Language < ApplicationRecord
       end
     end
 
-    matched_people.each do |person|
-      matched_counter = 0
-      languages.each do |lang|
-        matched_counter += 1 if lang.volunteer_id == person.id || lang.resident_id == person.id
-      end
-      ranked_matched_people << [person.id, matched_counter] if !ranked_matched_people.include?([person.id, matched_counter])
-    end
-    ranked_matched_people
+    Match.match_people(languages, matched_people)
   end
 
 
