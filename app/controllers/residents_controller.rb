@@ -69,10 +69,9 @@ class ResidentsController < ApplicationController
   def create_profile
     respond_to do |format|
       if @resident.update(resident_params)
-        format.html { redirect_to @resident, notice: 'Volunteer was successfully updated.' }
+        format.html { redirect_to @resident, notice: 'Resident was successfully updated.' }
         format.json { render :show, status: :ok, location: @resident }
       else
-        byebug
         format.html { render :edit }
         format.json { render json: @resident.errors, status: :unprocessable_entity }
       end
