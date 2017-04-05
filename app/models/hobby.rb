@@ -7,28 +7,7 @@ class Hobby < ApplicationRecord
   end
 
   def self.match_hobbies(user)
-    hobbies = []
-    matched_people = []
-    if user.class.name == "Volunteer"
-      user.hobbies.each do |user_hobby|
-        Hobby.all.each do |hobby|
-          if user_hobby.name == hobby.name && hobby.resident_id != nil
-            hobbies << hobby
-            matched_people << Resident.find(hobby.resident_id)
-          end
-        end
-      end
-    elsif user.class.name == "Resident"
-      user.hobbies.each do |user_hobby|
-        Hobby.all.each do |hobby|
-          if user_hobby.name == hobby.name && hobby.volunteer_id != nil
-            hobbies << hobby
-            matched_people << Volunteer.find(hobby.volunteer_id)
-          end
-        end
-      end
-    end
-
-    Match.match_people(hobbies, matched_people)
+    match_results = Match.match_criteria(Hobby, user, user.hobbies)
+    Match.match_people(match_results[0], match_results[1])
   end
 end

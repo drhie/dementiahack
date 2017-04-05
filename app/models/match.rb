@@ -44,4 +44,30 @@ class Match < ApplicationRecord
     ranked_matched_people
   end
 
+  def self.match_criteria(model, user, user_association)
+    criteria_arr = []
+    attr_name = model.columns[1].name
+    matched_people = []
+    if user.class.name == "Volunteer"
+      user_association.each do |association|
+        model.all.each do |crit|
+          if association.attributes[attr_name] == crit.attributes[attr_name] && crit.resident_id != nil
+            criteria_arr << crit
+            matched_people << Resident.find(crit.resident_id)
+          end
+        end
+      end
+    elsif user.class.name == "Resident"
+      user_association.each do |association|
+        model.all.each do |crit|
+          if association.attributes[attr_name] == crit.attributes[attr_name] && crit.volunteer_id != nil
+            criteria_arr << crit
+            matched_people << Volunteer.find(crit.volunteer_id)
+          end
+        end
+      end
+    end
+    return criteria_arr, matched_people
+  end
+
 end
