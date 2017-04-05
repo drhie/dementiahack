@@ -30,7 +30,6 @@
         <%= link_to "Log in", new_session_path %><p>Have an account already?</p>
       </div>
       <% if session[:user_id]  %>
-
         <div class="link-bar">
           <% if session[:type] == "Volunteer" %>
           <%= link_to 'Edit Login Info', edit_volunteer_path(session[:user_id]) %>
@@ -44,7 +43,7 @@
           <% end %>
           <%= link_to 'Log Out', session_path('chocolate mint'), method: :delete %>
         </div>
-
+      <% end %>
     </div>
 
     <div class="shell">

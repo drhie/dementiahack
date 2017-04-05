@@ -5,7 +5,7 @@ $heading-font: "Questrial";
 $paragraph-font: "Questrial";
 
 .homepage {
-  background-image: url('/assets/oldguy.jpeg');
+  background-image: url('/assets/oldlady.jpeg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment:fixed;
@@ -15,7 +15,7 @@ $paragraph-font: "Questrial";
 
 .nav-bar {
   height: 70px;
-  
+
 body {
   position: relative;
   margin: 0;
@@ -28,7 +28,7 @@ body {
   background: white;
   position: fixed;
   left: 0;
-  right: 0; 
+  right: 0;
 }
 
 
@@ -93,7 +93,7 @@ footer {
   text-align: center;
   background-color: $primary-color;
   position: absolute;
-  bottom: -80px;
+  bottom: -90px;
 }
 
 .intro {
@@ -117,26 +117,25 @@ footer {
     font-weight: 900;
   }
   .button:hover {
-    background: $tertiary-color
+    background: white;
+    color: black;
   }
 
   .button {
     display: inline-block;
-    width: 70%;
+    width: 20%;
     margin: 10px 0;
   }
 }
 
 .button {
   padding: 12px 20px;
-  border: 2px solid gray;
-  border-radius: 12px;
+  border: 2px solid white;
+  border-radius: 50px;
   margin: 15px 0;
-  background-color: $primary-color;
 }
 
 p, a {
-  float: right;
   padding-top: 2%;
   padding-right: 1%;
 }

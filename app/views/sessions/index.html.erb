@@ -3,14 +3,14 @@
 
   <div class="links">
     <p>Sign up as:</p>
+    <%= link_to new_resident_path do %>
+    <div class="button">
+      Resident
+    </div>
+    <% end %>
     <%= link_to new_volunteer_path do %>
       <div class="button">
         Volunteer
-      </div>
-    <% end %>
-    <%= link_to new_resident_path do %>
-      <div class="button">
-        Resident
       </div>
     <% end %>
   </div>
