@@ -14,20 +14,19 @@ class Schooling < ApplicationRecord
     set = ["Genetics", "Commerce", "International Relations", "Computer Science"]
   end
 
-  def self.match_schoolings(user)
-    schoolings = []
-    matched_people = []
-    ranked_matched_people = []
-    user.schoolings.each do |user_schooling|
-      Schooling.all.each do |schooling|
-        schoolings << schooling if user_schooling.specialization == schooling.specialization && schooling.volunteer_id == nil if user.class.name == "Volunteer"
-        schoolings << schooling if user_schooling.specialization == schooling.specialization && schooling.resident_id == nil if user.class.name == "Resident"
-        matched_people << Resident.find(schooling.resident_id) if user_schooling.specialization == schooling.specialization && schooling.volunteer_id == nil if user.class.name == "Volunteer"
-        matched_people << Volunteer.find(schooling.volunteer_id) if user_schooling.specialization == schooling.specialization && schooling.resident_id == nil if user.class.name == "Resident"
-      end
-    end
+  def self.match_school_name(user)
+    match_results = Match.match_criteria(Schooling, user, user.schoolings)
+    Match.match_people(match_results[0], match_results[1])
+  end
 
-    Match.match_people(schoolings, matched_people)
+  def self.match_school_level(user)
+    match_results = Match.match_criteria(Schooling, user, user.schoolings, 4)
+    Match.match_people(match_results[0], match_results[1])
+  end
+
+  def self.match_school_specialization(user)
+    match_results = Match.match_criteria(Schooling, user, user.schoolings, 5)
+    Match.match_people(match_results[0], match_results[1])
   end
 
 end

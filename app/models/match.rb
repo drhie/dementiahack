@@ -13,7 +13,9 @@ class Match < ApplicationRecord
       Interaction.match_interactions(user),
       Language.match_languages(user),
       Skill.match_skills(user),
-      Schooling.match_schoolings(user),
+      Schooling.match_school_name(user),
+      Schooling.match_school_level(user),
+      Schooling.match_school_specialization(user),
       WorkExperience.match_work_ex(user)
     ]
     match_criteria.each { |match| hashes << match }
@@ -44,9 +46,9 @@ class Match < ApplicationRecord
     ranked_matched_people
   end
 
-  def self.match_criteria(model, user, user_association)
+  def self.match_criteria(model, user, user_association, index_of_column=1)
     criteria_arr = []
-    attr_name = model.columns[1].name
+    attr_name = model.columns[index_of_column].name
     matched_people = []
     if user.class.name == "Volunteer"
       user_association.each do |association|

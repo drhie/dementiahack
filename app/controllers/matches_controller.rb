@@ -3,7 +3,6 @@ class MatchesController < ApplicationController
     @user = Resident.find(session[:user_id])
     @matches = Match.calculate_match(@user)
     @matched_people_matched_availabilities = Availability.matched_people_matched_availabilities(@user)
-    @matched_people_non_matched_availabilities = Availability.matched_people_non_matched_availabilities(@user)
   end
 
   def show_match
