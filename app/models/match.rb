@@ -16,7 +16,10 @@ class Match < ApplicationRecord
       Schooling.match_school_name(user),
       Schooling.match_school_level(user),
       Schooling.match_school_specialization(user),
-      WorkExperience.match_work_ex(user)
+      WorkExperience.match_work_ex(user),
+      Match.match_trait(user), #AGE
+      Match.match_trait(user, 7), #CITY
+      Match.match_trait(user, 6) #NEIGHBORHOOD
     ]
     match_criteria.each { |match| hashes << match }
     hashes.each do |hash|
@@ -72,4 +75,16 @@ class Match < ApplicationRecord
     return criteria_arr, matched_people
   end
 
+  def self.match_trait(user, index_of_column=10)
+    matched_people = []
+    attr_name = Volunteer.columns[index_of_column].name
+    if user.class.name == "Resident"
+      Volunteer.all.each do |volunteer|
+        if user[attr_name] == volunteer[attr_name]
+          matched_people << [volunteer.id, 1]
+        end
+      end
+    end
+    matched_people
+  end
 end

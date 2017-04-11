@@ -5,15 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-@hobbies = ["Cards", "Squash", "Ping Pong", "Dance", "Drawing", "Fantasy Sports", "Knitting", "Puzzles", "Pottery", "Yoga"]
-@interaction = ["Individual", "Small Group", "Large Group"]
-@language = ['English', 'Hindi', 'Korean', 'Japanese', 'German', 'Chinese', 'Spanish', 'French', "Portugese", "Bengali", "Russian", "Swedish"]
-@school = ["University of Toronto", "University of Waterloo", "University of Windsor", "George Brown College", "McMaster University", "Laurentian University", "OCAD University", "Queen's University", "Ryerson University", "Trent University", "University of Guelph", "University of Ontario Institute of Technology", "University of Ottawa", "Wilfrid Laurier University", "York University"]
-@level = ["High School", "Postsecondary", "Graduate", "Doctorate", "Undergrad"]
-@specialization = ["Genetics", "Commerce", "International Relations", "Computer Science"]
-@industry = ["Retail", "Research", "Translation", "IT", "Accountant", "Charity and Voluntary Work", "Business Consulting", "Banking", "Computer Networking", "Broadcast Media", "Education", "Entertainment", "Farming", "Judiciary", "Insurance", "Graphic Design", "Hospitality", "Insurance", "Trade"]
-@cultural_background = ['German', 'Indian', 'Korean', 'Chinese']
-@availability = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Breakfast', 'Lunch', 'Evening', 'Morning', 'Afternoon', 'Evening']
+@hobbies = Hobby.setlist
+@interaction = Interaction.setlist
+@language = Language.setlist
+@school = Schooling.setlist_names
+@level = Schooling.setlist_levels
+@specialization = Schooling.setlist_specializations
+@industry = WorkExperience.setlist
+@cultural_background = CulturalBackground.setlist
+@availability = Availability.setlist
+@age_ranges = ['Under 18', '18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70+']
 
 Availability.destroy_all
 CulturalBackground.destroy_all
@@ -33,7 +34,8 @@ WorkExperience.destroy_all
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email,
     to_learn: "How to be more proactive in the community",
-    password: "password"
+    password: "password",
+    age: @age_ranges.sample
   )
 
   3.times do
