@@ -1,4 +1,9 @@
 <div class="field">
+  <%= f.label "Upload your image" %>
+  <%= f.file_field :avatar %>
+</div>
+
+<div class="field">
   <%= f.label 'Enter your age' %>
   <%= f.select :age, (@age_ranges), include_blank: true %>
 </div>

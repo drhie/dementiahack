@@ -10,3 +10,15 @@
     <li>The successful volunteer will receive training for their new position as well as a detailed Volunteer description of their new role.
   </ol>
 </div>
+
+<% if @volunteer.policecheck.exists? %>
+  <p>We have your police check!<p>
+<% else %>
+  <div>
+    <p>Show us that you're cleeeeean.</p>
+    <%= form_for @volunteer, url: submit_police_check_path, method: :post do |f| %>
+      <%= f.file_field :policecheck %>
+      <%= f.submit "Submit Police Check" %>
+    <% end %>
+  </div>
+<% end %>

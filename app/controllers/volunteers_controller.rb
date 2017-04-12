@@ -1,5 +1,5 @@
 class VolunteersController < ApplicationController
-  before_action :set_volunteer, only: [:show, :edit, :update, :new_profile, :create_profile, :new_availability, :create_availability, :destroy]
+  before_action :set_volunteer, only: [:show, :edit, :update, :new_profile, :create_profile, :submit_police_check, :new_availability, :create_availability, :destroy]
 
   # GET /volunteers/1
   # GET /volunteers/1.json
@@ -41,7 +41,6 @@ class VolunteersController < ApplicationController
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
         format.json { render :show, status: :ok, location: @volunteer }
       else
-        byebug
         format.html { render :edit }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }
       end
@@ -109,6 +108,12 @@ class VolunteersController < ApplicationController
     redirect_to volunteer_path(@volunteer)
   end
 
+  def submit_police_check
+    if @volunteer.update(volunteer_params)
+      redirect_to volunteer_path(@volunteer)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_volunteer
@@ -117,7 +122,7 @@ class VolunteersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def volunteer_params
-      params.require(:volunteer).permit(:first_name, :last_name, :email, :to_learn, :neighborhood, :city, :location, :age,  :avatar, :password, :password_confirmation,
+      params.require(:volunteer).permit(:first_name, :last_name, :email, :to_learn, :neighborhood, :city, :location, :age,  :avatar, :policecheck, :password, :password_confirmation,
 
       hobbies_attributes: [ :id, :name, :_destroy ],
       languages_attributes: [ :id, :language, :_destroy ],

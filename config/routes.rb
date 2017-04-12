@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   get '/get_matches' => "matches#get_matches", as: :get_matches
   get '/show_match/:id' => "matches#show_match", as: :show_match
+
+  post '/submit_police_check' => 'volunteers#submit_police_check', as: :submit_police_check
 end
