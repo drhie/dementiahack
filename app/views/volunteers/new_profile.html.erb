@@ -3,6 +3,9 @@
     <%= form_for @volunteer, url: create_profile_path, method: :post do |f| %>
       <h1>Hi <%= @volunteer.first_name %> <%= @volunteer.last_name %>! Create your profile!</h1>
 
+      <%= f.label "Phone Number" %>
+      <%= f.text_field :phone_number %>
+
       <%= render 'form_partials/new_profile', f: f %>
 
 
