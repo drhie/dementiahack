@@ -6,10 +6,8 @@
   <table>
     <tr>
       <% Availability.setlist.each do |timeslot| %>
-      <td>
-          <%= label_tag "#{timeslot}" %>
-          <%= check_box_tag 'availability[timeslot][]', "#{timeslot}" %> <br>
-        </td>
+        <%= label_tag "#{timeslot}" %>
+        <%= check_box_tag 'availability[timeslot][]', "#{timeslot}" %> <br>
       <% end %>
     </tr>
   </table>
