@@ -3,10 +3,16 @@
   <h2>Select all that apply</h2>
   <div class="checkbox-container">
   <%= form_tag availability_path, method: :post %>
-  <% Availability.setlist.each do |timeslot| %>
-    <%= label_tag "#{timeslot}" %>
-    <%= check_box_tag 'availability[timeslot][]', "#{timeslot}" %> <br>
-  <% end %>
+  <table>
+    <tr>
+      <% Availability.setlist.each do |timeslot| %>
+      <td>
+          <%= label_tag "#{timeslot}" %>
+          <%= check_box_tag 'availability[timeslot][]', "#{timeslot}" %> <br>
+        </td>
+      <% end %>
+    </tr>
+  </table>
   </div>
 </div>
 <%= submit_tag "Submit Availability" %>
