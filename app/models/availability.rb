@@ -3,7 +3,17 @@ class Availability < ApplicationRecord
   belongs_to :volunteer, optional: true
 
   def self.setlist
-    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Breakfast', 'Lunch', 'Evening', 'Morning', 'Afternoon', 'Evening']
+    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    times = ['morning', 'afternoon', 'evening']
+    setlist = Array.new
+    days.each do |day|
+      times.each do |time|
+        slot = "#{day} #{time}"
+        setlist << slot
+      end
+    end
+    puts setlist
+    return setlist
   end
 
   def self.check_availabilities(user) #This checks on the volunteer's end
