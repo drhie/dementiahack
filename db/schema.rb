@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404210102) do
+ActiveRecord::Schema.define(version: 20170412185121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,16 +76,20 @@ ActiveRecord::Schema.define(version: 20170404210102) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "age"
     t.boolean  "active"
     t.string   "neighborhood"
     t.string   "city"
     t.string   "password_digest"
-    t.integer  "organization_id", default: 1
+    t.integer  "organization_id",     default: 1
     t.text     "to_teach"
     t.string   "location"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "schoolings", force: :cascade do |t|
@@ -110,14 +114,18 @@ ActiveRecord::Schema.define(version: 20170404210102) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "neighborhood"
     t.string   "city"
     t.string   "password_digest"
     t.text     "to_learn"
     t.string   "age"
     t.string   "location"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "work_experiences", force: :cascade do |t|
