@@ -3,9 +3,9 @@
     <%= form_for @volunteer, url: create_profile_path, method: :post do |f| %>
       <h1>Hi <%= @volunteer.first_name %> <%= @volunteer.last_name %>! Create your profile!</h1>
 
+      <%= f.file_field :avatar %>
       <%= render 'form_partials/new_profile', f: f %>
 
-      <%= f.file_field :avatar %>
 
       <%= f.label "What would you like to learn?"  %>
       <%= f.text_area :to_learn %>
